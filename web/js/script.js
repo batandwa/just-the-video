@@ -1,25 +1,9 @@
 function main() {
   var domain = getDomain();
-  alert(domain);
 
-  Observable.addObserver(function(message){
-    console.log("First observer message:" + message)
-  });
+  Observable.addObserver(youtubeObserver);
 
-  var observer = function(message){
-    console.log("Second observer message:" + message)
-  };
-
-  Observable.addObserver(observer);
-
-  Observable.notifyObservers('test 1');
-  // Second observer message:test 1
-  // First observer message:test 1
-
-  Observable.removeObserver(observer);
-
-  Observable.notifyObservers('test 2');
-  // First observer message:test 2
+  Observable.notifyObservers(domain, window.location.href);
 }
 
 function getDomain() {
@@ -39,11 +23,15 @@ var Observable = {
       this.observers.splice(index, 1)
     }
   },
-  notifyObservers: function(message) {
+  notifyObservers: function(domain, url) {
     for (var i = this.observers.length - 1; i >= 0; i--) {
-      this.observers[i](message)
+      this.observers[i](domain, url)
     };
   }
 }
+
+youtubeObserver = function(domain, url){
+  console.log("Loading Youtube video: " + url)
+};
 
 main();
