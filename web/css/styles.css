@@ -1,0 +1,6 @@
+iframe {
+  position: absolute;
+  width: 100%;
+  display: table;
+  height: 100%;
+}
