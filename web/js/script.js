@@ -2,6 +2,7 @@ function main() {
   var domain = getDomain();
 
   Observable.addObserver(youtubeObserver);
+  Observable.addObserver(tedObserver);
 
   Observable.notifyObservers(domain, window.location.href);
 }
@@ -70,8 +71,33 @@ var Observable = {
   }
 }
 
-youtubeObserver = function(domain, url){
+youtubeObserver = function(domain, url) {
+  var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
+
+  var fragment = createElement(code);
+  document.body.insertBefore(fragment, document.body.childNodes[0]);
+  
+  // var script=document.createElement('script');
+  // script.type='text/javascript';
+  // script.src="https://cdn.adf.ly/js/link-converter.js";
+
+document.body.appendChild(script);
   console.log("Loading Youtube video: " + url)
 };
+
+tedObserver = function(domain, url) {
+  console.log("Loading Ted video: " + url)
+};
+
+function createElement(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+
 
 main();
