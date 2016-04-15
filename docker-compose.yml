@@ -1,0 +1,8 @@
+web:
+    image: nginx
+    volumes:
+        - "./web:/usr/share/nginx/html"
+    env_file:
+        - ./docker/web.env.ini
+    ports:
+        - 80
