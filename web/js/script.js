@@ -38,7 +38,7 @@ var Observable = {
    * @return {void}
    */
   addObserver: function(observer) {
-    this.observers.push(observer)
+    this.observers.push(observer);
   },
 
   /**
@@ -49,10 +49,10 @@ var Observable = {
    * @return {void}
    */
   removeObserver: function(observer) {
-    var index = this.observers.indexOf(observer)
+    var index = this.observers.indexOf(observer);
 
     if (~index) {
-      this.observers.splice(index, 1)
+      this.observers.splice(index, 1);
     }
   },
 
@@ -76,9 +76,9 @@ var Observable = {
         return;
       }
       console.debug('We don\'t have a for handler for this URL.');
-    };
+    }
   }
-}
+};
 
 /**
  * Handler for Youtube videos.
@@ -97,7 +97,7 @@ youtubeObserver = function(domain, url) {
         // return match[2];
         // var vidId = ^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*
         var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/' + match[2] + '" frameborder="0" allowfullscreen></iframe>';
-        console.debug("Loading Youtube video: " + url)
+        console.debug("Loading Youtube video: " + url);
         return code;
       } else {
         console.error('Could not safely determine Youtube video ID.');
@@ -125,7 +125,7 @@ youtubeObserver = function(domain, url) {
  * @return {string}        The embed code.
  */
 tedObserver = function(domain, url) {
-  console.debug("Loading Ted video: " + url)
+  console.debug("Loading Ted video: " + url);
 };
 
 function createElement(htmlStr) {
@@ -137,6 +137,5 @@ function createElement(htmlStr) {
     }
     return frag;
 }
-
 
 main();
