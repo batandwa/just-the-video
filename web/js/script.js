@@ -127,14 +127,20 @@
     console.debug("Loading Ted video: " + url);
   }
 
+  /**
+   * Creates an HTML element for the DOM.
+   * @param  {string} htmlStr The HTML code.
+   * @return {Object}         The DOM element.
+   */
   function createElement(htmlStr) {
-      var frag = document.createDocumentFragment(),
-          temp = document.createElement('div');
-      temp.innerHTML = htmlStr;
-      while (temp.firstChild) {
-          frag.appendChild(temp.firstChild);
-      }
-      return frag;
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+      frag.appendChild(temp.firstChild);
+    }
+
+    return frag;
   }
 
   /**
