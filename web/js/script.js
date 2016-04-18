@@ -4,7 +4,8 @@ function main() {
   Observable.addObserver(youtubeObserver);
   Observable.addObserver(tedObserver);
 
-  Observable.notifyObservers(domain, window.location.href);
+  Observable.notifyObservers('youtube.com', 'https://www.youtube.com/watch?v=xPZDoHNpobE');
+  // Observable.notifyObservers(domain, window.location.href);
 }
 
 /**
@@ -65,28 +66,66 @@ var Observable = {
    *                         can handle this domain.
    */
   notifyObservers: function(domain, url) {
+    var iframe;
     for (var i = this.observers.length - 1; i >= 0; i--) {
-      this.observers[i](domain, url)
+      embedCode = this.observers[i](domain, url);
+      if(typeof(embedCode) !== 'undefined') {
+        // var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
+        var fragment = createElement(embedCode);
+        document.body.insertBefore(fragment, document.body.childNodes[0]);
+        return;
+      }
+      console.debug('We don\'t have a for handler for this URL.');
     };
   }
 }
 
+/**
+ * Handler for Youtube videos.
+ * @param  {string} domain The hostname of the video.
+ * @param  {string} url    The full video URL.
+ * @return {string}        The embed code.
+ */
 youtubeObserver = function(domain, url) {
-  var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
+  // TODO: Check if the regex won't be enough to nullify the need for this switch.
+  switch (domain) {
+    case 'youtu.be':
+    case 'youtube.com':
+      var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*/;
+      var match = url.match(regExp);
+      if (match && match.length >= 2) {
+        // return match[2];
+        // var vidId = ^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*
+        var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/' + match[2] + '" frameborder="0" allowfullscreen></iframe>';
+        console.debug("Loading Youtube video: " + url)
+        return code;
+      } else {
+        console.error('Could not safely determine Youtube video ID.');
+        return '';
+      }
+      break;
 
-  var fragment = createElement(code);
-  document.body.insertBefore(fragment, document.body.childNodes[0]);
-  
+    default:
+      return null;
+  }
+  // var fragment = createElement(code);
+  // document.body.insertBefore(fragment, document.body.childNodes[0]);
+
   // var script=document.createElement('script');
   // script.type='text/javascript';
   // script.src="https://cdn.adf.ly/js/link-converter.js";
 
-document.body.appendChild(script);
-  console.log("Loading Youtube video: " + url)
+  // document.body.appendChild(script);
 };
 
+/**
+ * Handler for TED talk videos.
+ * @param  {string} domain The hostname of the video.
+ * @param  {string} url    The full video URL.
+ * @return {string}        The embed code.
+ */
 tedObserver = function(domain, url) {
-  console.log("Loading Ted video: " + url)
+  console.debug("Loading Ted video: " + url)
 };
 
 function createElement(htmlStr) {
