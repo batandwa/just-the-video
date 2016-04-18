@@ -1,3 +1,6 @@
+(function () {
+'use strict';
+
 function main() {
   var domain = getDomain();
 
@@ -68,7 +71,7 @@ var Observable = {
   notifyObservers: function(domain, url) {
     var iframe;
     for (var i = this.observers.length - 1; i >= 0; i--) {
-      embedCode = this.observers[i](domain, url);
+      var embedCode = this.observers[i](domain, url);
       if(typeof(embedCode) !== 'undefined') {
         // var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
         var fragment = createElement(embedCode);
@@ -86,7 +89,7 @@ var Observable = {
  * @param  {string} url    The full video URL.
  * @return {string}        The embed code.
  */
-youtubeObserver = function(domain, url) {
+function youtubeObserver(domain, url) {
   // TODO: Check if the regex won't be enough to nullify the need for this switch.
   switch (domain) {
     case 'youtu.be':
@@ -116,7 +119,7 @@ youtubeObserver = function(domain, url) {
   // script.src="https://cdn.adf.ly/js/link-converter.js";
 
   // document.body.appendChild(script);
-};
+}
 
 /**
  * Handler for TED talk videos.
@@ -124,9 +127,9 @@ youtubeObserver = function(domain, url) {
  * @param  {string} url    The full video URL.
  * @return {string}        The embed code.
  */
-tedObserver = function(domain, url) {
+function tedObserver(domain, url) {
   console.debug("Loading Ted video: " + url);
-};
+}
 
 function createElement(htmlStr) {
     var frag = document.createDocumentFragment(),
@@ -139,3 +142,4 @@ function createElement(htmlStr) {
 }
 
 main();
+}());
