@@ -54,7 +54,7 @@ var Observable = {
   removeObserver: function(observer) {
     var index = this.observers.indexOf(observer);
 
-    if (~index) {
+    if (index !== -1) {
       this.observers.splice(index, 1);
     }
   },
@@ -69,9 +69,9 @@ var Observable = {
    *                         can handle this domain.
    */
   notifyObservers: function(domain, url) {
-    var iframe;
+    var embedCode;
     for (var i = this.observers.length - 1; i >= 0; i--) {
-      var embedCode = this.observers[i](domain, url);
+      embedCode = this.observers[i](domain, url);
       if(typeof(embedCode) !== 'undefined') {
         // var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
         var fragment = createElement(embedCode);
