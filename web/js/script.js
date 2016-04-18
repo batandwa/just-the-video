@@ -2,22 +2,24 @@
 'use strict';
 
 function main() {
-  var domain = getDomain();
+  var videoUrl = decodeURI(QueryString.v);
+  var domain = getDomain(videoUrl);
 
   Observable.addObserver(youtubeObserver);
   Observable.addObserver(tedObserver);
 
-  Observable.notifyObservers('youtube.com', 'https://www.youtube.com/watch?v=xPZDoHNpobE');
-  // Observable.notifyObservers(domain, window.location.href);
+  // Observable.notifyObservers('youtube.com', 'https://www.youtube.com/watch?v=xPZDoHNpobE');
+  console.debug(videoUrl);
+  console.debug(domain);
+  Observable.notifyObservers(domain, videoUrl);
 }
 
 /**
  * Gets domain name from the address bar.
  * @return {string} The domain name without subdomains.
  */
-function getDomain() {
-  var loc = window.location;
-  return loc.hostname;
+function getDomain(url) {
+  return parseUri(url).host;
 }
 
 /**
@@ -94,6 +96,7 @@ function youtubeObserver(domain, url) {
   switch (domain) {
     case 'youtu.be':
     case 'youtube.com':
+    case 'www.youtube.com':
       var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*/;
       var match = url.match(regExp);
       if (match && match.length >= 2) {
@@ -140,6 +143,59 @@ function createElement(htmlStr) {
     }
     return frag;
 }
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  }
+    return query_string;
+}();
+
+function parseUri (str) {
+	var	o   = parseUri.options,
+		m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
+		uri = {},
+		i   = 14;
+
+	while (i--) uri[o.key[i]] = m[i] || "";
+
+	uri[o.q.name] = {};
+	uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
+		if ($1) uri[o.q.name][$1] = $2;
+	});
+
+	return uri;
+};
+
+parseUri.options = {
+	strictMode: false,
+	key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
+	q:   {
+		name:   "queryKey",
+		parser: /(?:^|&)([^&=]*)=?([^&]*)/g
+	},
+	parser: {
+		strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+		loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+	}
+};
+
 
 main();
 }());
