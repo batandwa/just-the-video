@@ -145,7 +145,7 @@
 
   /**
    * Gets the parameters from the URL.
-   * @author  http://stackoverflow.com/a/979995/434961
+   * @see    http://stackoverflow.com/a/979995/434961
    */
   var QueryString = function () {
     // This function is anonymous, is executed immediately and
@@ -173,7 +173,7 @@
 
   /**
    * parseUri 1.2: Split URLs in JavaScript
-   * @url    http://blog.stevenlevithan.com/archives/parseuri
+   * @see    http://blog.stevenlevithan.com/archives/parseuri
    * @author Steven Levithan
    * @param  {stirng} str The URL to be parsed.
    * @return {string}     The URL object split into it's different components.
