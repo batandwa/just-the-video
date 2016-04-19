@@ -8,9 +8,6 @@
     Observable.addObserver(youtubeObserver);
     Observable.addObserver(tedObserver);
 
-    // Observable.notifyObservers('youtube.com', 'https://www.youtube.com/watch?v=xPZDoHNpobE');
-    console.debug(videoUrl);
-    console.debug(domain);
     Observable.notifyObservers(domain, videoUrl);
   }
 
@@ -20,6 +17,7 @@
    */
   function getDomain(url) {
     var parsed = parseUri(url);
+    // TODO: Subdomains should be removed
     return parsed.host;
   }
 
@@ -27,6 +25,7 @@
    * The observable where we'll register and centrally distribute requests to
    * convert a url to an Iframe.
    * @type {Object}
+   * @todo Rename this class.
    */
   var Observable = {
     /**
@@ -124,7 +123,7 @@
    * @return {string}        The embed code.
    */
   function tedObserver(domain, url) {
-    console.debug("Loading Ted video: " + url);
+    console.error("TED handler not yet implemented.");
   }
 
   /**
