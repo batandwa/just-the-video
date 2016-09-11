@@ -42,7 +42,7 @@
      *                           exist.
      * @return {void}
      */
-    addObserver: function(observer) {
+    addObserver: function (observer) {
       this.observers.push(observer);
     },
 
@@ -53,7 +53,7 @@
      *                           exist.
      * @return {void}
      */
-    removeObserver: function(observer) {
+    removeObserver: function (observer) {
       var index = this.observers.indexOf(observer);
 
       if (index !== -1) {
@@ -70,7 +70,7 @@
      *                         Null is returned if none of the providers
      *                         can handle this domain.
      */
-    notifyObservers: function(domain, url) {
+    notifyObservers: function (domain, url) {
       var embedCode;
       for (var i = this.observers.length - 1; i >= 0; i--) {
         embedCode = this.observers[i](domain, url);
@@ -80,9 +80,10 @@
           document.body.insertBefore(fragment, document.body.childNodes[0]);
           return;
         }
+
         console.debug('We don\'t have a for handler for this URL.');
       }
-    }
+    },
   };
 
   /**
