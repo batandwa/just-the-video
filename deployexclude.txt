@@ -1,0 +1,4 @@
+app/files/deposit/uploads/
+.git
+*.bak
+*~

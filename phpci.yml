@@ -1,0 +1,11 @@
+complete:
+    Ket4yii\PHPCI\Deployer\Plugin\Deployer:
+        master:
+            # Stage is optional: else the branchname will be used
+            stage: stage
+            # Required
+            server: 41.79.78.52
+            # Required
+            user: ubuntu
+            # Required, no trailing slash
+            deploy_path: /tmp/tshebedisano_access
