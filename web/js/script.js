@@ -123,7 +123,7 @@
    * @param  {string} url    The full video URL.
    * @return {string}        The embed code.
    */
-  function tedObserver(domain, url) {
+  function tedObserver() {
     console.error("TED handler not yet implemented.");
   }
 

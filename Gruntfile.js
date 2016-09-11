@@ -1,4 +1,6 @@
 /*global module:false*/
+/*jshint strict:false */
+
 module.exports = function(grunt) {
 
   // Project configuration.
