@@ -2,3 +2,5 @@
 /web/css/*.css
 /web/css/*.css.map
 /vendor
+/node_modules
+/docker-compose.*.yml
