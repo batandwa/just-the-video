@@ -2,3 +2,5 @@ app/files/deposit/uploads/
 .git
 *.bak
 *~
+web/*.jade
+web/*.js

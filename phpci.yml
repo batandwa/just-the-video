@@ -1,6 +1,6 @@
 setup:
-    env:
-        APPLICATION_ENV: "development"
+    grunt:
+      
 complete:
     Ket4yii\PHPCI\Deployer\Plugin\Deployer:
         master:

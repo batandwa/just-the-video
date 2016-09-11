@@ -2,7 +2,7 @@
   "name": "justthevideo",
   "title": "Just the Video",
   "licenses": [
-    "MIT"
+    {"type": "MIT"}
   ],
   "author": {
     "name": "Batandwa Colani",

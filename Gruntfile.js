@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['web/js/<%= pkg.name %>.js'],
+        src: ['web/js/**/*.js'],
         dest: 'dist/js/<%= pkg.name %>.js'
       }
     },
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: 'dist/js/<%= pkg.name %>.min.js'
       }
     },
     jshint: {
@@ -67,6 +67,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
 
 };
