@@ -1,7 +1,8 @@
-/web/index.html
+/web/*.html
 /web/css/*.css
 /web/css/*.css.map
 /vendor
 /node_modules
 /docker-compose.*.yml
 /dist
+/junk
