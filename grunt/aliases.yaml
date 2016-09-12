@@ -2,3 +2,4 @@ default:
   - jshint
   - concat
   - uglify
+  - jade

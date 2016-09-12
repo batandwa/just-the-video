@@ -1,0 +1,9 @@
+dist:
+  files:
+  - 'web/index.jade'
+  - 'web/watch.jade'
+    # 'web/<%= pkg.name %>.html': 'web/**/*.jade'
+  options:
+    pretty: true
+    client: false
+    basePath: 'web/'
