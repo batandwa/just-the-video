@@ -1,8 +1,7 @@
 dist:
   files:
-  - 'web/index.jade'
-  - 'web/watch.jade'
-    # 'web/<%= pkg.name %>.html': 'web/**/*.jade'
+    'web/index.html': 'web/index.jade'
+    'web/watch.html': 'web/watch.jade'
   options:
     pretty: true
     client: false
