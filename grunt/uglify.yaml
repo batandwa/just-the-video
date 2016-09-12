@@ -6,4 +6,4 @@ dist:
     sourceMapName: dist/js/justthevideo.min.js.map
   files:
     dist/js/<%= pkg.name %>.min.js:
-    - "<%= concat.dist.dest %>"
+    - <%= concat.dist.dest %>

@@ -4,5 +4,6 @@ options:
   stripBanners: 'true'
 dist:
   src:
-  - web/js/**/*.js
+    - web/js/**/*.js
+    - web/assets/js/*.js
   dest: dist/js/<%= pkg.name %>.js
