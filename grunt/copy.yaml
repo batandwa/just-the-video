@@ -1,0 +1,14 @@
+dist:
+  files:
+    - expand: true
+      dot: true
+      cwd: web
+      dest: dist
+      src:
+        - "*.html"
+        - assets/**/*
+        - css/*.css
+    # - expand: true,
+    #   cwd: '.temp/<%= yeoman.images %>',
+    #   dest: '<%= yeoman.dist %>/<%= yeoman.images %>',
+    #   src: ['generated/*']

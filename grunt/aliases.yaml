@@ -1,5 +1,9 @@
 default:
+  - watch
+
+dist:
   - jshint
   - concat
   - uglify
   - jade
+  - copy
