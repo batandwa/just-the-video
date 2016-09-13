@@ -1,6 +1,9 @@
 default:
   - watch
 
+setup:
+  - googlefonts:setup
+
 dist:
   - jshint
   - sass:dev

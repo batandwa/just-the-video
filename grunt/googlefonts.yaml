@@ -1,0 +1,23 @@
+setup:
+    options:
+        fontPath: web/googlefonts
+        httpPath: /googlefonts/
+        cssFile: fonts.css
+        formats:
+            eot: true
+            ttf: true
+            woff: true
+            woff2: true
+            svg: true
+        fonts:
+          - family: Dosis
+            styles:
+              - 400
+              - 600
+              - 700
+              - 800
+          - family: Raleway
+            styles:
+              - 400
+              - 300
+              - 700

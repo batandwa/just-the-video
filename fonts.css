@@ -1,0 +1,49 @@
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/googlefonts/dosis-400-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 600;
+	src: url(/googlefonts/dosis-600-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 700;
+	src: url(/googlefonts/dosis-700-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Dosis';
+	font-style: normal;
+	font-weight: 800;
+	src: url(/googlefonts/dosis-800-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/googlefonts/raleway-400-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 300;
+	src: url(/googlefonts/raleway-300-normal.eot);
+	src: ;
+}
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 700;
+	src: url(/googlefonts/raleway-700-normal.eot);
+	src: ;
+}
