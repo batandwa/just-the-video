@@ -1,0 +1,5 @@
+dev:
+  options:
+    style: expanded
+  files:
+    web/css/styles.css: web/css/styles.sass
