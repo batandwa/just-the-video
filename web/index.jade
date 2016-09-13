@@ -49,114 +49,115 @@ head
     |   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     | <![endif]-->
 
-// Preloader
-#faceoff
-    #preloader
-    .preloader-section
+body
+    // Preloader
+    #faceoff
+        #preloader
+        .preloader-section
 
-// Preloader end
-// header start
-header#home.navbar-fixed-top
-    nav.navbar.navbar-default(role='navigation')
-        .container
-            .row
-                .col-sm-3
-                    // Brand and toggle get grouped for better mobile display
-                    .navbar-header
-                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-                            span.sr-only Toggle navigation
-                            span.icon-bar
-                            span.icon-bar
-                            span.icon-bar
-                        h1
-                            a.nav-brand(href='') Just the Video
-                .col-sm-7
-                    // Collect the nav toggling
-                    #bs-example-navbar-collapse-1.collapse.navbar-collapse.navbar-example
-                        ul.nav.navbar-nav
-                            li
-                                a(href='#intro') Intro
-                            li
-                                a(href='#feature') Feature
-                            li
-                                a(href='#description') Description
-                            li
-                                a(href='#screenshot') Screenshots
-                            li
-                                a(href='#download') Download
-                            li
-                                a(href='#contact') Contact
+    // Preloader end
+    // header start
+    header#home.navbar-fixed-top
+        nav.navbar.navbar-default(role='navigation')
+            .container
+                .row
+                    .col-sm-3
+                        // Brand and toggle get grouped for better mobile display
+                        .navbar-header
+                            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                                span.sr-only Toggle navigation
+                                span.icon-bar
+                                span.icon-bar
+                                span.icon-bar
+                            h1
+                                a.nav-brand(href='') Just the Video
+                    .col-sm-7
+                        // Collect the nav toggling
+                        #bs-example-navbar-collapse-1.collapse.navbar-collapse.navbar-example
+                            ul.nav.navbar-nav
+                                li
+                                    a(href='#intro') Intro
+                                li
+                                    a(href='#feature') Feature
+                                li
+                                    a(href='#description') Description
+                                li
+                                    a(href='#screenshot') Screenshots
+                                li
+                                    a(href='#download') Download
+                                li
+                                    a(href='#contact') Contact
 
-// banner start
-section#banner.banner.norm-img
-    .trans-bg
-        .container-fluid
-            .row
-                .col-sm-12
-                    h2
-                        a.lg-logo(href='') Just the Video
-                        
-                    // Text slider start here
-                    .flex_text.text-slider
-                        ul.slides
-                            li Pop-out a video
-                            li Keep the features of the cloud player
-                            li Uses a bookmark(let), no installation
+    // banner start
+    section#banner.banner.norm-img
+        .trans-bg
+            .container-fluid
+                .row
+                    .col-sm-12
+                        h2
+                            a.lg-logo(href='') Just the Video
                             
-                    .download-block.text-center
-                        a.btn-download(href='#') Just the Video
-                        span Drag this button to your toolbar
-                        //- a.btn-download(href='') Take a tour
+                        // Text slider start here
+                        .flex_text.text-slider
+                            ul.slides
+                                li Pop-out a video
+                                li Keep the features of the cloud player
+                                li Uses a bookmark(let), no installation
+                                
+                        .download-block.text-center
+                            a.btn-download(href='#') Just the Video
+                            span Drag this button to your toolbar
+                            //- a.btn-download(href='') Take a tour
 
-footer#footer.norm-img(style='background-position: 50% 200px;')
-    .trans-bg(style='min-height: 564px;')
-        .container
-            .row
-                .col-sm-12.text-center
-                    .copyright
-                        p 
-                            | &copy; 
-                            span Just the Video 
-                            span.copyright-year 2015
-                            | , all right reserved
-                        p
-                            | Design by 
-                            span CodePassenger
-        #go-to-top
-            a(style='display: inline;', href='#banner')
+    footer#footer.norm-img(style='background-position: 50% 200px;')
+        .trans-bg(style='min-height: 564px;')
+            .container
+                .row
+                    .col-sm-12.text-center
+                        .copyright
+                            p 
+                                | &copy; 
+                                span Just the Video 
+                                span.copyright-year 2015
+                                | , all right reserved
+                            p
+                                | Design by 
+                                span CodePassenger
+            #go-to-top
+                a(style='display: inline;', href='#banner')
 
 
-//-<!-- build:js /js/site.min.js -->
+    //-<!-- build:js /js/site.min.js -->
 
-// jQuery (necessary for Bootstrap's JavaScript plugins)
-script(src='components/jquery/jquery.js')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='components/jquery/jquery.js')
 
-// Include all compiled plugins (below), or include individual files as needed
-script(src='assets/js/bootstrap.min.js')
-script(src='assets/js/smoothscroll.js')
-script(src='assets/js/jquery.scrollTo.min.js')
-script(src='assets/js/jquery.localScroll.min.js')
-script(src='assets/js/jquery.nav.js')
-script(src='assets/js/owl.carousel.js')
-script(src='assets/js/jquery.magnific-popup.js')
-script(src='assets/js/jquery.flexslider-min.js')
-script(src='assets/js/jquery.parallax.js')
-script(src='assets/js/jquery.ajaxchimp.min.js')
-script(src='assets/js/matchMedia.js')
-script(src='assets/js/script.js')
-script(src='assets/js/wow.js')
-script(src='assets/js/easing.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='assets/js/bootstrap.min.js')
+    script(src='assets/js/smoothscroll.js')
+    script(src='assets/js/jquery.scrollTo.min.js')
+    script(src='assets/js/jquery.localScroll.min.js')
+    script(src='assets/js/jquery.nav.js')
+    script(src='assets/js/owl.carousel.js')
+    script(src='assets/js/jquery.magnific-popup.js')
+    script(src='assets/js/jquery.flexslider-min.js')
+    script(src='assets/js/jquery.parallax.js')
+    script(src='assets/js/jquery.ajaxchimp.min.js')
+    script(src='assets/js/matchMedia.js')
+    script(src='assets/js/script.js')
+    script(src='assets/js/wow.js')
+    script(src='assets/js/easing.js')
 
-//-<!-- endbuild -->
+    //-<!-- endbuild -->
 
-script.
-    $(document).ready(function() {
-    //"use strict";
-    $('#banner').parallax("50%", 0.5, true);
-    $('#video').parallax("50%", 0.5, true);
-    $('#feature').parallax("50%", 0.5, true);
-    $('#subscription').parallax("50%", 0.5, true);
-    $('#review').parallax("50%", 0.5, true);
-    $('#download').parallax("50%", 0.5, true);
-    $('#footer').parallax("50%", 0.5, true);
-    });
+    script.
+        $(document).ready(function() {
+        //"use strict";
+        $('#banner').parallax("50%", 0.5, true);
+        $('#video').parallax("50%", 0.5, true);
+        $('#feature').parallax("50%", 0.5, true);
+        $('#subscription').parallax("50%", 0.5, true);
+        $('#review').parallax("50%", 0.5, true);
+        $('#download').parallax("50%", 0.5, true);
+        $('#footer').parallax("50%", 0.5, true);
+        });
