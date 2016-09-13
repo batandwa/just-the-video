@@ -3,6 +3,6 @@ default:
 
 dist:
   - jshint
+  - sass:dev
   - jadeUsemin:dist
   - jade:dist
-  - copy:dist
