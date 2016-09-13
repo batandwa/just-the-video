@@ -6,3 +6,4 @@ dist:
   - sass:dev
   - jadeUsemin:dist
   - jade:dist
+  - copy:dist
