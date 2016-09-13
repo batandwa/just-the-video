@@ -1,0 +1,12 @@
+scripts:
+  options:
+    tasks:
+      js:
+        - concat
+        - uglify
+      css:
+        - concat
+        - cssmin
+  files:
+    - dest: temp/index.jade
+      src: web/index.jade
