@@ -10,11 +10,11 @@ head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     | <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     
-    //-<!-- build:js dist/js/script.min.js -->
+    //-<!-- build:js /js/script.min.js -->
     script(src='/js/watch.js')
     //-<!-- endbuild -->
      
-    //-<!-- build:css dist/css/styles.min.css -->
+    //-<!-- build:css /css/styles.min.css -->
     // Bootstrap
     link(href='assets/css/bootstrap.css', rel='stylesheet')
 
@@ -99,27 +99,36 @@ section#banner.banner.norm-img
                 .col-sm-12
                     h2
                         a.lg-logo(href='') Just the Video
-                    // .lg-logo
+                        
                     // Text slider start here
                     .flex_text.text-slider
                         ul.slides
                             li Pop-out a video
                             li Keep the features of the cloud player
-                            li Uses a bookmark(let), no installatoin
-                    // /.text-slider end
-                    ul.app
-                        li
-                            a(href='')
-                                i.fa.fa-apple
-                        li
-                            a(href='')
-                                i.fa.fa-android
-                        li
-                            a(href='')
-                                i.fa.fa-windows
+                            li Uses a bookmark(let), no installation
+                            
                     .download-block.text-center
-                        a.btn-download(href='') Download
-                        a.btn-download(href='') Take a tour
+                        a.btn-download(href='#') Just the Video
+                        span Drag this button to your toolbar
+                        //- a.btn-download(href='') Take a tour
+
+footer#footer.norm-img(style='background-position: 50% 200px;')
+    .trans-bg(style='min-height: 564px;')
+        .container
+            .row
+                .col-sm-12.text-center
+                    .copyright
+                        p 
+                            | &copy; 
+                            span Just the Video 
+                            span.copyright-year 2015
+                            | , all right reserved
+                        p
+                            | Design by 
+                            span CodePassenger
+        #go-to-top
+            a(style='display: inline;', href='#banner')
+
 
 // jQuery (necessary for Bootstrap's JavaScript plugins)
 // <script src="https://code.jquery.com/jquery.js"></script>
