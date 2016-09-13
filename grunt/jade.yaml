@@ -1,7 +1,15 @@
 dist:
   files:
-    'web/index.html': 'web/index.jade'
-    'web/watch.html': 'web/watch.jade'
+    dist/index.html: temp/index.jade
+    dist/watch.html: temp/watch.jade
+  options:
+    pretty: true
+    client: false
+    basePath: 'web/'
+dev:
+  files:
+    web/index.html: web/index.jade
+    web/watch.html: web/watch.jade
   options:
     pretty: true
     client: false
