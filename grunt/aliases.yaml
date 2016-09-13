@@ -1,15 +1,15 @@
 default:
-  - watch
+    - watch
 
 setup:
-  - googlefonts:setup
+    - googlefonts:setup
 
 dist:
-  - jshint
-  - sass:dev
-  - jadeUsemin:dist
-  - jade:dist
-  - copy:dist
+    - jshint
+    - sass:dev
+    - jadeUsemin:dist
+    - jade:dist
+    - copy:dist
 
 build:
-  - dist
+    - dist
