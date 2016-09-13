@@ -10,3 +10,6 @@ dist:
   - jadeUsemin:dist
   - jade:dist
   - copy:dist
+
+build:
+  - dist
