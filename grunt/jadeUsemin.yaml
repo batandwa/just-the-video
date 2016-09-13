@@ -11,3 +11,5 @@ dist:
   files:
     - dest: temp/index.jade
       src: web/index.jade
+    - dest: temp/watch.jade
+      src: web/watch.jade
