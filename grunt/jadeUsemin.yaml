@@ -1,5 +1,6 @@
-scripts:
+dist:
   options:
+    targetPrefix: dist
     tasks:
       js:
         - concat

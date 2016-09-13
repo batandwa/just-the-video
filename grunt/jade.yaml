@@ -5,7 +5,6 @@ dist:
   options:
     pretty: true
     client: false
-    basePath: 'web/'
 dev:
   files:
     web/index.html: web/index.jade

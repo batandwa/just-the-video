@@ -3,8 +3,6 @@ default:
 
 dist:
   - jshint
-  - concat
-  - uglify
   - jadeUsemin:dist
   - jade:dist
   - copy:dist

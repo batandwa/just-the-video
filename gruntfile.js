@@ -35,12 +35,6 @@ module.exports = function(grunt) {
       pattern: 'grunt-*',
       config: require('./package.json'),
       scope: 'devDependencies',
-      pkg: grunt.file.readJSON('package.json'),
-      banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     },
 
     //can post process config object before it gets passed to grunt

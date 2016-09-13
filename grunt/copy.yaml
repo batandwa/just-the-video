@@ -4,7 +4,6 @@ dist:
       cwd: web
       dest: dist
       src:
-        - "*.html"
         - assets/css/*
         - assets/fonts/*
         - assets/images/*
