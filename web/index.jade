@@ -3,7 +3,7 @@ head
     meta(charset='UTF-8')
 
     title Just the Video
-    meta(name='description', content='Pop up video player.')
+    meta(name='description', content='Pop-up embedded video player')
     meta(name='author', content='Batandwa Colani <i@batandwa.me>')
 
     // Mobile Specific Meta
@@ -125,14 +125,13 @@ footer#footer.norm-img(style='background-position: 50% 200px;')
         #go-to-top
             a(style='display: inline;', href='#banner')
 
+
+//-<!-- build:js /css/site.min.js -->
+
 // jQuery (necessary for Bootstrap's JavaScript plugins)
+script(src='components/jquery/jquery.js')
+
 // Include all compiled plugins (below), or include individual files as needed
-//- script(src='https://code.jquery.com/jquery.js')
-
-//-<!-- build:css /css/site.min.css -->
-
-script(src='assets/js/jquery.min.js')
-
 script(src='assets/js/bootstrap.min.js')
 script(src='assets/js/smoothscroll.js')
 script(src='assets/js/jquery.scrollTo.min.js')
