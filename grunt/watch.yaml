@@ -3,4 +3,4 @@ jade:
   files:
   - 'web/**/*.jade'
   - 'web/*.jade'
-  tasks: jade
+  tasks: jade:dev
