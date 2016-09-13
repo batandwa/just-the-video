@@ -1,0 +1,18 @@
+{
+  "name": "justthevideo",
+  "description": "Pop-up embedded video player",
+  "main": "",
+  "authors": [
+    "Batandwa Colani"
+  ],
+  "license": "MIT",
+  "homepage": "justthevideo.batandwa.me",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
