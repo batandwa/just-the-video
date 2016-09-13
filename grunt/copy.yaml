@@ -1,13 +1,13 @@
 dist:
-  files:
-    - expand: true
-      cwd: web/assets
-      dest: dist
-      src:
-        - fonts/**
-        - images/**
-    - expand: true
-      cwd: web
-      dest: dist
-      src:
-        - googlefonts/*
+    files:
+        - expand: true
+          cwd: web/assets
+          dest: dist
+          src:
+              - fonts/**
+              - images/**
+        - expand: true
+          cwd: web
+          dest: dist
+          src:
+              - googlefonts/*
