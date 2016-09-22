@@ -1,4 +1,7 @@
 {
+    "config":{
+        "secure-http": false
+    },
     "require-dev": {
         "ket4yii/phpci-deployer-plugin": "dev-identity_key_feature"
     }
