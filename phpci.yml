@@ -1,6 +1,9 @@
-setup:
+test:
+    composer:
     grunt:
-      
+        gruntfile: gruntfile.js
+        task: build
+
 complete:
     Ket4yii\PHPCI\Deployer\Plugin\Deployer:
         master:
