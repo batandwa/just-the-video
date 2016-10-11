@@ -529,7 +529,6 @@ header .app li {
   position: relative;
 }
 .banner {
-  background: url(../images/slider/slide-1.jpg) no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -685,10 +684,6 @@ section.banner-carousel {
 }
 
 /*----banner image Version----*/
-
-.norm-img .trans-bg {
-  background: rgba(0, 0, 0, .38);
-}
 
 
 /*
@@ -1513,12 +1508,16 @@ section.contact > .container {
 ------------------------------------------------------------------------
 */
 
-#footer {
-  background: url(../images/footer_bg.jpg) no-repeat fixed;
+body {
+  background: url(../images/africa.jpg) no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+footer .trans-bg {
+  padding-top: 80px;
+  padding-bottom: 0;
 }
 .social-icon {
   margin-bottom: 60px;
