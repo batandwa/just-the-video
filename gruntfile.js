@@ -3,12 +3,6 @@ module.exports = function(grunt) {
 
   require('load-grunt-config')(grunt, {
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-
     // path to task.js files, defaults to grunt dir
     configPath: path.join(process.cwd(), 'grunt'),
 
@@ -17,13 +11,9 @@ module.exports = function(grunt) {
 
     // data passed into config.  Can use with <%= test %>
     data: {
-      test: false,
       pkg: grunt.file.readJSON('package.json'),
-      banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-        '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-        ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+      bookmarklet: grunt.file.read('temp/bookmarklet.txt'),
+      banners: grunt.file.read('temp/bookmarklet.txt'),
     },
 
     // use different function to merge config files

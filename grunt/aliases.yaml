@@ -10,6 +10,7 @@ dist:
     - jadeUsemin:dist
     - jade:dist
     - copy:dist
+    - expand-include:bookmarklet
 
 build:
     - dist

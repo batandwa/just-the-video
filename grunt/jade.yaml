@@ -1,6 +1,6 @@
 dist:
   files:
-    dist/index.html: temp/index.jade
+    temp/index.html: temp/index.jade
     dist/watch.html: temp/watch.jade
   options:
     pretty: true
