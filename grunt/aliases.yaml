@@ -14,3 +14,9 @@ dist:
 
 build:
     - dist
+
+bookmarklet:
+    - shell:bookmarklet
+
+bm:
+    - bookmarklet
