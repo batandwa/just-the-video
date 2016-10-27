@@ -16,6 +16,9 @@
     "tests"
   ],
   "devDependencies": {
-    "jquery": "1.8.3"
+    "jquery": "1.8.3",
+    "flexslider": "2.5.0",
+    "bootstrap": "3.2.0",
+    "dropzone": "v4.3.0"
   }
 }
