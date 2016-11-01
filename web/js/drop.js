@@ -38,7 +38,7 @@ function addLoadEvent(func) {
 }
 
 function dropLoad() {
-  var drop = new Dropzone('.drop', {
+  var drop = new window.Dropzone('.drop', {
     url: "#",
     clickable: false,
   });
@@ -51,35 +51,11 @@ function dropLoad() {
     }
 
     var url = e.dataTransfer.getData('Text');
-    console.log('Drop of {0} registered. Attempting to play video.'.format(url));
-    Observable.notifyObservers(url);
-  });
-  drop.on('dragstart', function(e) {
-    console.log('dragstart.');
-  });
-  drop.on('dragenter', function(e) {
-    console.log('dragenter.');
-  });
-  drop.on('dragover', function(e) {
-    console.log('dragover.');
-  });
-  drop.on('dragleave', function(e) {
-    console.log('dragleave.');
+    console.log('Drop of ' + url + ' registered. Attempting to play video.');
+    window.Observable.notifyObservers(url);
   });
 
   console.log('Waiting for drag and drop events.');
-}
-
-if (!String.prototype.format) {
-  String.prototype.format = function() {
-    var args = arguments;
-    return this.replace(/{(\d+)}/g, function(match, number) {
-      return typeof args[number] !== 'undefined'
-        ? args[number]
-        : match
-      ;
-    });
-  };
 }
 
 addLoadEvent(dropLoad);

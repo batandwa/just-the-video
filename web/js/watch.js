@@ -2,13 +2,13 @@
   'use strict';
 
   function bootstrap() {
-    Observable.addObserver(youtubeObserver);
-    Observable.addObserver(tedObserver);
+    window.Observable.addObserver(youtubeObserver);
+    window.Observable.addObserver(tedObserver);
   }
 
   function playQuery() {
     var videoUrl = decodeURI(QueryString.v);
-    Observable.notifyObservers(videoUrl);
+    window.Observable.notifyObservers(videoUrl);
   }
 
   /**
@@ -234,7 +234,7 @@
       }
     }
   };
-  
+
   bootstrap();
   playQuery();
 }());
