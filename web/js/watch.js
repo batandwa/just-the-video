@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  function main() {
-    var videoUrl = decodeURI(QueryString.v);
-    var domain = getDomain(videoUrl);
-
+  function bootstrap() {
     Observable.addObserver(youtubeObserver);
     Observable.addObserver(tedObserver);
+  }
 
-    Observable.notifyObservers(domain, videoUrl);
+  function playQuery() {
+    var videoUrl = decodeURI(QueryString.v);
+    Observable.notifyObservers(videoUrl);
   }
 
   /**
@@ -70,7 +70,8 @@
      *                         Null is returned if none of the providers
      *                         can handle this domain.
      */
-    notifyObservers: function (domain, url) {
+    notifyObservers: function (url) {
+      var domain = getDomain(url);
       var embedCode;
       for (var i = this.observers.length - 1; i >= 0; i--) {
         embedCode = this.observers[i](domain, url);
@@ -215,5 +216,6 @@
     }
   };
 
-  main();
+  bootstrap();
+  playQuery();
 }());
