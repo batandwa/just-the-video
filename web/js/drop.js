@@ -47,8 +47,10 @@ function dropLoad() {
     if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting...why???
     if (e.preventDefault) e.preventDefault();
 
-    var el = e.dataTransfer.getData('Text');
-    console.log(el);
+    var url = e.dataTransfer.getData('Text');
+    console.log('Drop of {0} registered. Attempting to play video.'.format(url));
+    // var videoUrl = decodeURI(QueryString.v);
+    Observable.notifyObservers(url);
   });
   drop.on('dragstart', function(e) {
     console.log('dragstart.');
@@ -64,6 +66,18 @@ function dropLoad() {
   });
 
   console.log('Waiting for drag and drop events.');
+}
+
+if (!String.prototype.format) {
+  String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/{(\d+)}/g, function(match, number) {
+      return typeof args[number] != 'undefined'
+        ? args[number]
+        : match
+      ;
+    });
+  };
 }
 
 addLoadEvent(dropLoad);
