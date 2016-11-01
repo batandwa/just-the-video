@@ -39,8 +39,8 @@ function addLoadEvent(func) {
 }
 
 function dropLoad() {
-  var drop = new Dropzone('div#drop', {
-    url: '#',
+  var drop = new Dropzone('.drop', {
+    url: "#",
     clickable: false,
   });
   drop.on("drop", function(e) {
@@ -50,9 +50,20 @@ function dropLoad() {
     var el = e.dataTransfer.getData('Text');
     console.log(el);
   });
+  drop.on('dragstart', function(e) {
+    console.log('dragstart.');
+  });
+  drop.on('dragenter', function(e) {
+    console.log('dragenter.');
+  });
+  drop.on('dragover', function(e) {
+    console.log('dragover.');
+  });
+  drop.on('dragleave', function(e) {
+    console.log('dragleave.');
+  });
 
-  var bin = document.getElementById('h5');
-  console.log(bin);
+  console.log('Waiting for drag and drop events.');
 }
 
 addLoadEvent(dropLoad);
