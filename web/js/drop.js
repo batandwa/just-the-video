@@ -27,14 +27,13 @@ var addEvent = (function () {
 
 function addLoadEvent(func) {
 	var oldonload = window.onload;
-	if (typeof window.onload != 'function') {
+	if (typeof window.onload !== 'function') {
 		window.onload = func;
-	}
-	else {
+	} else {
 		window.onload = function() {
 			oldonload();
 			func();
-		}
+		};
 	}
 }
 
@@ -44,12 +43,15 @@ function dropLoad() {
     clickable: false,
   });
   drop.on("drop", function(e) {
-    if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting...why???
-    if (e.preventDefault) e.preventDefault();
+    if(e.stopPropagation) {
+      e.stopPropagation();
+    }
+    if(e.preventDefault) {
+      e.preventDefault();
+    }
 
     var url = e.dataTransfer.getData('Text');
     console.log('Drop of {0} registered. Attempting to play video.'.format(url));
-    // var videoUrl = decodeURI(QueryString.v);
     Observable.notifyObservers(url);
   });
   drop.on('dragstart', function(e) {
@@ -72,7 +74,7 @@ if (!String.prototype.format) {
   String.prototype.format = function() {
     var args = arguments;
     return this.replace(/{(\d+)}/g, function(match, number) {
-      return typeof args[number] != 'undefined'
+      return typeof args[number] !== 'undefined'
         ? args[number]
         : match
       ;

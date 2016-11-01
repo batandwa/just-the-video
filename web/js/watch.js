@@ -122,7 +122,7 @@
           return null;
       }
     },
-  }
+  };
 
   /**
    * Handler for TED talk videos.
@@ -134,7 +134,7 @@
     play: function() {
       console.error("TED handler not yet implemented.");
     }
-  }
+  };
 
   /**
    * Creates an HTML element for the DOM.
@@ -224,17 +224,17 @@
     }
   };
 
+  Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+  };
+  NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = this.length - 1; i >= 0; i--) {
+      if(this[i] && this[i].parentElement) {
+        this[i].parentElement.removeChild(this[i]);
+      }
+    }
+  };
+  
   bootstrap();
   playQuery();
 }());
-
-Element.prototype.remove = function() {
-    this.parentElement.removeChild(this);
-}
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-    for(var i = this.length - 1; i >= 0; i--) {
-        if(this[i] && this[i].parentElement) {
-            this[i].parentElement.removeChild(this[i]);
-        }
-    }
-}
