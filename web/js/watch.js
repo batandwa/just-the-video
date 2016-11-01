@@ -27,7 +27,7 @@
    * @type {Object}
    * @todo Rename this class.
    */
-  var Observable = {
+  window.Observable = {
     /**
      * Available repository of observers.
      * @type {Array}
@@ -74,9 +74,13 @@
       var domain = getDomain(url);
       var embedCode;
       for (var i = this.observers.length - 1; i >= 0; i--) {
-        embedCode = this.observers[i](domain, url);
+        embedCode = this.observers[i].play(domain, url);
         if(typeof(embedCode) !== 'undefined') {
-          // var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/JjFwNlbIYXs" frameborder="0" allowfullscreen></iframe>';
+          var player = document.getElementById('player');
+          if(player !== null && typeof player !== 'undefined') {
+            player.remove();
+          }
+
           var fragment = createElement(embedCode);
           document.body.insertBefore(fragment, document.body.childNodes[0]);
           return;
@@ -93,29 +97,31 @@
    * @param  {string} url    The full video URL.
    * @return {string}        The embed code.
    */
-  function youtubeObserver(domain, url) {
-    // TODO: Check if the regex won't be enough to nullify the need for this switch.
-    switch (domain) {
-      case 'youtu.be':
-      case 'youtube.com':
-      case 'www.youtube.com':
-        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*/;
-        var match = url.match(regExp);
-        if (match && match.length >= 2) {
-          // return match[2];
-          // var vidId = ^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*
-          var code = '<iframe width="400" height="300" src="https://www.youtube.com/embed/' + match[2] + '" frameborder="0" allowfullscreen></iframe>';
-          console.debug("Loading Youtube video: " + url);
-          return code;
-        } else {
-          console.error('Could not safely determine Youtube video ID.');
-          return '';
-        }
-        break;
+  var youtubeObserver = {
+    play: function(domain, url) {
+      // TODO: Check if the regex won't be enough to nullify the need for this switch.
+      switch (domain) {
+        case 'youtu.be':
+        case 'youtube.com':
+        case 'www.youtube.com':
+          var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]{11,11}).*/;
+          var match = url.match(regExp);
+          if (match && match.length >= 2) {
+            // return match[2];
+            // var vidId = ^.*(youtu.be\/|v\/|embed\/|watch\?|youtube.com\/user\/[^#]*#([^\/]*?\/)*)\??v?=?([^#\&\?]*).*
+            var code = '<iframe id="player" width="400" height="300" src="https://www.youtube.com/embed/' + match[2] + '" frameborder="0" allowfullscreen></iframe>';
+            console.debug("Loading Youtube video: " + url);
+            return code;
+          } else {
+            console.error('Could not safely determine Youtube video ID.');
+            return '';
+          }
+          break;
 
-      default:
-        return null;
-    }
+        default:
+          return null;
+      }
+    },
   }
 
   /**
@@ -124,8 +130,10 @@
    * @param  {string} url    The full video URL.
    * @return {string}        The embed code.
    */
-  function tedObserver() {
-    console.error("TED handler not yet implemented.");
+  var tedObserver = {
+    play: function() {
+      console.error("TED handler not yet implemented.");
+    }
   }
 
   /**
@@ -219,3 +227,14 @@
   bootstrap();
   playQuery();
 }());
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = this.length - 1; i >= 0; i--) {
+        if(this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
