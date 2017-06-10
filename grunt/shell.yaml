@@ -1,1 +1,1 @@
-bookmarklet: 'node_modules/bookmarkletify/bin/bookmarkletify bookmarklet/main.js > temp/bookmarklet.txt'
+bookmarklet: 'mkdir -p temp && node_modules/bookmarkletify/bin/bookmarkletify bookmarklet/main.js > temp/bookmarklet.txt'
