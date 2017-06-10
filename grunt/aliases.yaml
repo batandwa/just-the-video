@@ -5,6 +5,7 @@ setup:
     - googlefonts:setup
 
 dist:
+    - bookmarklet
     - jshint
     - sass:dev
     - jadeUsemin:dist
