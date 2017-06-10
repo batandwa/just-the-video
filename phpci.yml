@@ -1,8 +1,11 @@
+build_settings:
+    prefer_symlink: true
+
 test:
     composer:
-    grunt:
-        gruntfile: gruntfile.js
-        task: build
+    # grunt:
+    #     gruntfile: gruntfile.js
+    #     task: build
 
 complete:
     Ket4yii\PHPCI\Deployer\Plugin\Deployer:
