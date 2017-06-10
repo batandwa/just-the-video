@@ -4,4 +4,4 @@ bookmarklet:
     options:
         directiveSyntax: js
         globalDefines:
-            bookmarklet: "<%= bookmarklet %>"
+            bookmarklet: "<%= bookmarklet() %>"
