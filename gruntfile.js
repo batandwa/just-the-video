@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     // path to task.js files, defaults to grunt dir
     configPath: path.join(process.cwd(), 'grunt'),
-    bookmarklet: grunt.file.read('temp/bookmarklet.txt'),
+    // bookmarklet: grunt.file.read('temp/bookmarklet.txt'),
 
     // auto grunt.initConfig
     init: true,
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     // data passed into config.  Can use with <%= test %>
     data: {
       pkg: grunt.file.readJSON('package.json'),
-      bookmarklet: grunt.file.read('temp/bookmarklet.txt'),
+      // bookmarklet: grunt.file.read('temp/bookmarklet.txt'),
       banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
