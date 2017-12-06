@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - 7.4.0
+    - 9.1.0
 before_install:
     - npm install -g grunt-cli yarn
     - yarn add global ruby
