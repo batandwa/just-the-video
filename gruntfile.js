@@ -3,13 +3,13 @@ module.exports = function(grunt) {
 
   require('load-grunt-config')(grunt, {
     pkg: grunt.file.readJSON('package.json'),
-    // path to task.js files, defaults to grunt dir
+    // Path to task.js files, defaults to grunt dir
     configPath: path.join(process.cwd(), 'grunt'),
 
-    // auto grunt.initConfig
+    // Auto grunt.initConfig
     init: true,
 
-    // data passed into config.  Can use with <%= test %>
+    // Data passed into config.  Can use with <%= test %>
     data: {
       pkg: grunt.file.readJSON('package.json'),
       bookmarklet: function() { return grunt.file.read('temp/bookmarklet.txt'); },
@@ -20,10 +20,10 @@ module.exports = function(grunt) {
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     },
 
-    // use different function to merge config files
+    // Use different function to merge config files
     mergeFunction: require('recursive-merge'),
 
-    // can optionally pass options to load-grunt-tasks.
+    // Can optionally pass options to load-grunt-tasks.
     // If you set to false, it will disable auto loading tasks.
     loadGruntTasks: {
       pattern: 'grunt-*',
@@ -31,10 +31,10 @@ module.exports = function(grunt) {
       scope: 'devDependencies',
     },
 
-    //can post process config object before it gets passed to grunt
+    // Can post process config object before it gets passed to grunt
     postProcess: function(config) {},
 
-    //allows to manipulate the config object before it gets merged with the data object
+    // Allows to manipulate the config object before it gets merged with the data object
     preMerge: function(config, data) {}
   });
 };
