@@ -1,15 +1,18 @@
-language: node_js
-node_js:
-    - 9.1.0
-before_install:
-    - npm install -g grunt-cli yarn
-    - yarn add global ruby
-    - gem install sass
+# language: node_js
+# node_js:
+#     - 9.1.0
+# before_install:
+#     - npm install -g grunt-cli yarn
+#     - yarn add global ruby
+#     - gem install sass
+services:
+    - docker
 install:
-    - yarn add global sass
-    - yarn add global grunt-cli
-    - yarn install
-before_script: grunt build
+    - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
+    # - yarn add global sass
+    # - yarn add global grunt-cli
+    # - yarn install
+# before_script: grunt build
 after_success:
     - docker login --username $DOCKER_USER --password "$DOCKER_PASS"
     - export REPO=just-the-video/app
@@ -19,6 +22,6 @@ after_success:
     - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
     - docker push $REPO
 env:
-  global:
-  - secure: xvs78SZX5hw5Cd6v7trET9CSHsxZAZqAkPAXSnqt8tFS1AD0H+F0PqZu9oGiWq6YKxMls9leGDkeqvg4KC2wROBNXtkKRjUR0WG932dzOendXMLJhkaq54T1rVum+ENLv6aeASnumxdD24TxQG4JXhhzaa3iHmQleSIjHfgDQiKcZ0/rGIXen+Sda/mL2S5cm5FixkZE+JSVD7J+Y2uDtAnAro1joOoXP+9rgLqIlJBbUJ8+XeKZXbjrvrcuteWig+nwuxz6pxlRjzhkWcphiby9NVjneyfoVEXLzntB/qpxM6fT/B1JDV7z/q6tmUI14/2Xg5SwYpwnYwJqmlFaEGqe9BI7tKgHtz6v7qoXjt+/KKuTzhXcPLv59Fr3cIj0Kx01k0DpG2DuIf9uGO7TXXBtXnwt9zkY9rRa0it/nORO2rQmOqEcAWg1Drqt3L19RmKsnsuQYmU0O2e6emkwJ0W316+RsVzl7Wi/33soCJeWYBHLfeH+Lo2GucQavbyISPTieBbGvt7UIJ4W3P4fTQyg5xR58BcK7j6//BTM66bJVV4//ZHBuC9FwltsKZ1rF9kRMSHFZNc5VUfQHL1NmCzuR/u8r8KYGc9kUJq3mjX7oKFfVjup5DZGdkOc35vq4U3zC8vUYeBlxcYJ82dDuyqxCxNISgMoGGQi6PmK8uY=
-  - secure: LFjLQRA4pMuoD+wR9M8QdvgHsnw8MDlX/KnqHbCaxaLHR4L/Dh+TNSfH9FS2ZZThADIXJuoPFhYc3IJutNC1XYtueo8kKqkF4IS9akADq2gBPoIjfzG2er1yBLEY+fi+MQ3B3rCHtu593SzvLbmnsMMXhfLB53nDEVLETpq1qvosBN2gHRosQM5RXnA4pmcOqxWXly12f1nPhRHwr6/0/7oZbZw+obma0oSB6ttZCdzUONxOBzrGYeRvSO/2ghtGDn5+wkXJ+azlhKpo02oAiUahRvzI5dOFJHTkZku/vuHfg+y84NX8ki2yutJs8/CIwTVkzGMzg4k52k55EKLBH2iRlDdcXjgP+aSwzIiXHxryAyCgWnf6Pnv4BvdmGNtkBopST++l4e7ka8BbW5qU/w7MdJVj0D63pArz/uEN2jBu9kgKLf52P9UlV8gEyQ60JQqyNHxQ9rkUuDkaV4NoLYipyZocS5XuJCjWB40LWtbDwl2rMOBR0SGBaZqjVb+OpkSIKfsem1yp8d/filNcLSu9FWxykOCa+wZDjfdJ0z+f5TP2GPyCcR0l+lDr5ojgAIeDcYROLVSkfYQZWvRXUEqrniinDZmD2GXvVJ9IAGBKfto3UHVj+XES1ySI3WMTrHVL7Py6+jIH7jJwoeWqVKm0dNGp6RwXXu24MXSvVgQ=
+    global:
+        - secure: xvs78SZX5hw5Cd6v7trET9CSHsxZAZqAkPAXSnqt8tFS1AD0H+F0PqZu9oGiWq6YKxMls9leGDkeqvg4KC2wROBNXtkKRjUR0WG932dzOendXMLJhkaq54T1rVum+ENLv6aeASnumxdD24TxQG4JXhhzaa3iHmQleSIjHfgDQiKcZ0/rGIXen+Sda/mL2S5cm5FixkZE+JSVD7J+Y2uDtAnAro1joOoXP+9rgLqIlJBbUJ8+XeKZXbjrvrcuteWig+nwuxz6pxlRjzhkWcphiby9NVjneyfoVEXLzntB/qpxM6fT/B1JDV7z/q6tmUI14/2Xg5SwYpwnYwJqmlFaEGqe9BI7tKgHtz6v7qoXjt+/KKuTzhXcPLv59Fr3cIj0Kx01k0DpG2DuIf9uGO7TXXBtXnwt9zkY9rRa0it/nORO2rQmOqEcAWg1Drqt3L19RmKsnsuQYmU0O2e6emkwJ0W316+RsVzl7Wi/33soCJeWYBHLfeH+Lo2GucQavbyISPTieBbGvt7UIJ4W3P4fTQyg5xR58BcK7j6//BTM66bJVV4//ZHBuC9FwltsKZ1rF9kRMSHFZNc5VUfQHL1NmCzuR/u8r8KYGc9kUJq3mjX7oKFfVjup5DZGdkOc35vq4U3zC8vUYeBlxcYJ82dDuyqxCxNISgMoGGQi6PmK8uY=
+        - secure: LFjLQRA4pMuoD+wR9M8QdvgHsnw8MDlX/KnqHbCaxaLHR4L/Dh+TNSfH9FS2ZZThADIXJuoPFhYc3IJutNC1XYtueo8kKqkF4IS9akADq2gBPoIjfzG2er1yBLEY+fi+MQ3B3rCHtu593SzvLbmnsMMXhfLB53nDEVLETpq1qvosBN2gHRosQM5RXnA4pmcOqxWXly12f1nPhRHwr6/0/7oZbZw+obma0oSB6ttZCdzUONxOBzrGYeRvSO/2ghtGDn5+wkXJ+azlhKpo02oAiUahRvzI5dOFJHTkZku/vuHfg+y84NX8ki2yutJs8/CIwTVkzGMzg4k52k55EKLBH2iRlDdcXjgP+aSwzIiXHxryAyCgWnf6Pnv4BvdmGNtkBopST++l4e7ka8BbW5qU/w7MdJVj0D63pArz/uEN2jBu9kgKLf52P9UlV8gEyQ60JQqyNHxQ9rkUuDkaV4NoLYipyZocS5XuJCjWB40LWtbDwl2rMOBR0SGBaZqjVb+OpkSIKfsem1yp8d/filNcLSu9FWxykOCa+wZDjfdJ0z+f5TP2GPyCcR0l+lDr5ojgAIeDcYROLVSkfYQZWvRXUEqrniinDZmD2GXvVJ9IAGBKfto3UHVj+XES1ySI3WMTrHVL7Py6+jIH7jJwoeWqVKm0dNGp6RwXXu24MXSvVgQ=
