@@ -8,14 +8,14 @@
 services:
     - docker
 install:
-    - docker login docker-registry.batandwa.me --username $DOCKER_USER --password "$DOCKER_PASS"
+    - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
     # - yarn add global sass
     # - yarn add global grunt-cli
     # - yarn install
 # before_script: grunt build
 after_success:
-    - docker login docker-registry.batandwa.me --username $DOCKER_USER --password "$DOCKER_PASS"
+    - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     - export REPO=just-the-video/app
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     - docker build -f Dockerfile -t $REPO:$COMMIT .
