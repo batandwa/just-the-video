@@ -8,9 +8,9 @@
 services:
     - docker
 install:
+    - echo $DOCKER_REGISTRY_PASSWORD
     - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
-    - echo $DOCKER_REGISTRY_PASSWORD
     # - yarn add global sass
     # - yarn add global grunt-cli
     # - yarn install
