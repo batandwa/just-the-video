@@ -1,12 +1,13 @@
 services:
-- docker
-install:
-    - echo $DOCKER_REGISTRY_PASSWORD
-    - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
-    # - yarn add global sass
-    # - yarn add global grunt-cli
-    # - yarn install
+    - docker
+language: php
+#install:
+#    - echo $DOCKER_REGISTRY_PASSWORD
+#    - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+#    - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
+#    # - yarn add global sass
+#    # - yarn add global grunt-cli
+#    # - yarn install
 # before_script: grunt build
 after_success:
     - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
@@ -22,3 +23,6 @@ env:
 #        - secure: LFjLQRA4pMuoD+wR9M8QdvgHsnw8MDlX/KnqHbCaxaLHR4L/Dh+TNSfH9FS2ZZThADIXJuoPFhYc3IJutNC1XYtueo8kKqkF4IS9akADq2gBPoIjfzG2er1yBLEY+fi+MQ3B3rCHtu593SzvLbmnsMMXhfLB53nDEVLETpq1qvosBN2gHRosQM5RXnA4pmcOqxWXly12f1nPhRHwr6/0/7oZbZw+obma0oSB6ttZCdzUONxOBzrGYeRvSO/2ghtGDn5+wkXJ+azlhKpo02oAiUahRvzI5dOFJHTkZku/vuHfg+y84NX8ki2yutJs8/CIwTVkzGMzg4k52k55EKLBH2iRlDdcXjgP+aSwzIiXHxryAyCgWnf6Pnv4BvdmGNtkBopST++l4e7ka8BbW5qU/w7MdJVj0D63pArz/uEN2jBu9kgKLf52P9UlV8gEyQ60JQqyNHxQ9rkUuDkaV4NoLYipyZocS5XuJCjWB40LWtbDwl2rMOBR0SGBaZqjVb+OpkSIKfsem1yp8d/filNcLSu9FWxykOCa+wZDjfdJ0z+f5TP2GPyCcR0l+lDr5ojgAIeDcYROLVSkfYQZWvRXUEqrniinDZmD2GXvVJ9IAGBKfto3UHVj+XES1ySI3WMTrHVL7Py6+jIH7jJwoeWqVKm0dNGp6RwXXu24MXSvVgQ=
         - secure: upWtoxC4M9qpnd/iPQfHhtfaZRh8X/RqWb923HlN2Nx9Sotzj486lNFinWa87ovY64vb8S4voWIwK1klrGoGsNntKjirdgna5bByB8kxSCzO+xTpBJSqg2SKqu391WYQ181ee01Nmu2knxNZ92dVKh7GsJvTCevdfojfoCdZgUQJd4GcWkqFg3BCWWFM+5k6gJmUg0S4SV2RhwANGo0kG1av4olKLpue0tu7L9hnOYsDdDwJxUymW0Bk4YGK9O4w2SoPBMuD+jcQcYfRUKE0Kp1lPelG11OViCfcWgAJR7otcl9nG/FKRsXJLBHJBjQd56X2nV0jdSYjNU0XX0m/3yCWjQl8Fis8/DSJX5xTofZWGKQK7Ub4RDE8NBfyGZv5QmLKVe3Vp8ai950pX8XVp5ZdZAHzvSorMtfwvXFKWKidmu++cn4Pd/glmQmCqjFBVibsLv3iXgkxE1LI5x4Gx/65LfWOBkl1La+AIxWLhbZJ1fi3UgCGaOtMK/5Sce5YsEp94YjA2odY/A5O8jpA+wihtp5eH7fdcImstNQEasWcyHStXWcEjE/e4Ih9EWq4BsSGUXC0lzfmy/vjZafLf/WeIWkYFTAsk6zfPdDhYzC10MiqTCy3IododYgfxlHFU2Ya4GYvEsaOxIfANATavUMoYknr3pwL+iBf6OmElHg=
         - secure: P3D59CD73vr23bdQ356N9qML+1KYPz3FKlJp7A8nvKO/Y9/juAgJCGJOL6fFcJ+bAXO3rA4Ul3KLdsqDOT6X1MBFJR68yYZcP52+TiLXFrBuc5gQmaxRuKNZWydkjJhFAukvLQR6QomCexnncAxqOj5OLJjpDGYM2lJfjf1163RfgJIwFa/EQQlqFIoQRdK2lTtJOTIsU14kBSC1OusZ2W7q8xAeetXQZQGiexTQioKxxOLrihcvlCCZsAfrUaEvPERi+jkGutyp4vAZmGFoeaCLtpH3eECphB9+MBBT910/5rW1jXzxu5Z0MOa8BHh7OxJaITS0bS5ie2YzkgvGfFi3nLXPxkTgZ6MAnctZiSbw9FiVXU0oeaTL+4Mjye++RcH5RRRcnIqRZ4lAlJWQvBnDf5oe6AER49a7/VsKxqn8LY5+FQHPJwlr/nWvaXrDbVdG1TpPeJ+mGMnl/TmoLcJb1XvAexXHxy34M1z68JIZyERWC8NOK5Gn9q9Nogajpt6jGO3K8tPQ6TlH760yqFUAvKN5XuMqRRIjbIeYDVQnh1fjsrDDoExuZR4LQoExTkgHckPEWoCDbzQKVSy2N5LTIQrXjGiESv2pxhGngNbx5ZFOlGsDYtPsKFeJoU2BnEYB+uNcWse7pYVJQNAkv19JMFwl2m5rvUPWSQxDPIc=
+script:
+    - docker login docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+    - docker run --rm -it -v /tmp/code:/code docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
