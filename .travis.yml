@@ -7,7 +7,7 @@ php:
 
 after_success:
     - docker login api.docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - export REPO=just-the-video/app
+    - export REPO=api.docker-registry.batandwa.me/just-the-video/app
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     - docker build -f Dockerfile -t $REPO:$COMMIT .
     - docker tag $REPO:$COMMIT $REPO:$TAG
