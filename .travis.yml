@@ -23,6 +23,7 @@ env:
 script:
 #    - docker login api.docker-registry.batandwa.me --username admin --password "meccaprovepauloepsom"
 #    - export DOCKER_REGISTRY_USER=admin
+    - docker --version
     - export DOCKER_REGISTRY_USER=batandwa
 #    - export DOCKER_REGISTRY_PASSWORD="meccaprovepauloepsom"
     - echo $DOCKER_REGISTRY_PASSWORD | docker login --username $DOCKER_REGISTRY_USER --password-stdin
