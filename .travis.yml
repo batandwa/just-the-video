@@ -28,6 +28,6 @@ script:
 #    - export DOCKER_REGISTRY_USER=admin
     - docker --version
 #    - export DOCKER_REGISTRY_USER=batandwa
-    - export DOCKER_REGISTRY_PASSWORD="meccaprovepauloepsom"
+#    - export DOCKER_REGISTRY_PASSWORD="meccaprovepauloepsom"
 #    - docker login api.docker-registry.batandwa.me --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
 #    - docker run --rm -it -v /tmp/code:/code api.docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
