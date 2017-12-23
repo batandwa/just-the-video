@@ -34,7 +34,7 @@ script:
 #    - export DOCKER_REGISTRY_USER=batandwa
 #    - export DOCKER_REGISTRY_PASSWORD="meccaprovepauloepsom"
     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - docker run --rm -it -v /tmp/code:/code api.docker-registry.batandwa.me/node-build:latest sh -c "cd /code && yarn install"
+    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && yarn install"
 
 notifications:
     pushover:
