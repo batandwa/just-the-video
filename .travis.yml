@@ -1,31 +1,43 @@
-sudo: required
-services:
+services: 
     - docker
-language: python
+# language: bash
 #language: php
 #php:
 #    - 7.0
 #    - 7.1
 
-after_success:
-    - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - export REPO=api.docker-registry.batandwa.me/just-the-video/app
-    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-    - docker build -f Dockerfile -t $REPO:$COMMIT .
-    - docker tag $REPO:$COMMIT $REPO:$TAG
-    - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
-    - docker push $REPO
+# after_success:
+#     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+#     - export REPO=api.docker-registry.batandwa.me/just-the-video/app
+#     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+#     - docker build -f Dockerfile -t $REPO:$COMMIT .
+#     - docker tag $REPO:$COMMIT $REPO:$TAG
+#     - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+#     - docker push $REPO
 
 env:
     global:
-        - secure: "SXAoNywscc8NUEhMkF3S8Nh0nAh10f2zpUyJkyyZ9WqH9Fa71khx2XlT4bKBzTPp8AD6k4prfDWfeWEZ8HDmi23YGEepZtLg99BsSz3wSzpIgUcCe8O+ua1pAQBfnnBYQJkrm0zsPL6m28MgB9IysFIadvywMtkFHche8cpykK43THBNkYtSArQTLA8UvGQgvEd4perbI4Ul0nzIOkQy6/dyCfLp+80YFSqQfAbvzrt38s/NntXcowDPIipOIhoOlnsPs1d3qpCmdYJO1pRCW0idaXFYgk+w3qDxR7JTYx9D4Gdzt+FHEo7aM5gkGQtNyzP4P0o25ijA3X/lHO+jz0G8Ob/b7mjCxl4JWaNuMQ7PMVUdJMy+Fx5b87eKyev18QGTe/LlpPIYW0nJPum6L4je6sWHnkO+RMuOQg+ZMuXbZyRMW/phGLM6OMSXafvXLzj+VGy4gTlpMfxrLDbjePr0fIoC1ZgRZvGMBQgLYU4vOw8dBm4ntt4Yz/L2ZiGUKwD2hJNqD1MXJTA9sdZqUmGAz03SjTiN29ZIauHjgqNo0IFSdXkq5qfR8WmwncmDLQ6X5ibD24r4X4pDGwtOxj6PwpC5i5vRaguu6yfKo4RDriPEaTwDnn2zhSaiW9VbRRZNNE0JIoMLA3aVth1wv3h6/QgfJgxnA0dfs5MHBgE="
+#        - secure: "SXAoNywscc8NUEhMkF3S8Nh0nAh10f2zpUyJkyyZ9WqH9Fa71khx2XlT4bKBzTPp8AD6k4prfDWfeWEZ8HDmi23YGEepZtLg99BsSz3wSzpIgUcCe8O+ua1pAQBfnnBYQJkrm0zsPL6m28MgB9IysFIadvywMtkFHche8cpykK43THBNkYtSArQTLA8UvGQgvEd4perbI4Ul0nzIOkQy6/dyCfLp+80YFSqQfAbvzrt38s/NntXcowDPIipOIhoOlnsPs1d3qpCmdYJO1pRCW0idaXFYgk+w3qDxR7JTYx9D4Gdzt+FHEo7aM5gkGQtNyzP4P0o25ijA3X/lHO+jz0G8Ob/b7mjCxl4JWaNuMQ7PMVUdJMy+Fx5b87eKyev18QGTe/LlpPIYW0nJPum6L4je6sWHnkO+RMuOQg+ZMuXbZyRMW/phGLM6OMSXafvXLzj+VGy4gTlpMfxrLDbjePr0fIoC1ZgRZvGMBQgLYU4vOw8dBm4ntt4Yz/L2ZiGUKwD2hJNqD1MXJTA9sdZqUmGAz03SjTiN29ZIauHjgqNo0IFSdXkq5qfR8WmwncmDLQ6X5ibD24r4X4pDGwtOxj6PwpC5i5vRaguu6yfKo4RDriPEaTwDnn2zhSaiW9VbRRZNNE0JIoMLA3aVth1wv3h6/QgfJgxnA0dfs5MHBgE="
 #        - secure: "Tde59jHHtmivFtVTApkVb8uESr8UPm+7Df8jktVs7XBD1rB+4VIjheSX3DBkrqEIJY6WpE1KoJaTKItwLXoqJk1KJCxoJzGhT2EWYiXEYqqk+Dwl4vHA6G6ZOQLPxQKciGoQqyJvkHtgfjsG7ZwCScOii+XjMpyOfhwuSPqzQoOxaFav4ysAHeL0rPPEydvo2kgk/3BQ7RAzwtO4UNRe7xfOowVsrd/XvDuiuOnrD8i6WtO1LUc+VxR+2bwTn1PrrKmRlbAZC8VjlfRBXx/0ECCmAkXjwWscwsiNZadr0XJfrempvGnn1IQVqkuorYwYbBoHIhE9eZzg06OpyLLeMcUuvWrQg9MW7hgEviUNV9ohUv0M8bV0Db/xliXMU9P3eiDnvXdIoSYKVvih7FRGaU5RWr2HkNlkxFHe4d6p2NMXvfOngDshWZ+oN7ZDcv3B/Y5RlSbUj9BeK9DJZlQ+/GNwc0+bhYFIOrnJP4ffkUk5B07KZmKJGaqI9GuK/lpoBCh/FQzK4Pn914Kx/B3yZxhiRqaMt98Y0zikFYpLg3+ZaHVRMmPkamFZUPH2OLWy83uXBlfEx10frNSbA2HKtbii73dXdIF4Antx0Bwza7iS30OREETd2IVuwnTBYGc+Qro0CzMcerhjIHBQoyMWID9koch3/EBoDXF/mJkU7Zw="
         - secure: "RsAjaSoLun07aMi78bis1JaBpAkQE/hj9pXeazC71vlMBevEmHpHzpf1zbUcbMLrH/ux+7J9c0FYDW2ueE2TAyyOv81Vrf+nmfpsFcB1i6QmxX1aELJA7oU890oxj4rixraBPnSK9QFsswfNBkjJQetTQy/PsTIoT5W0hzlJF+Dajq35UJdAcE8JyFngxP4RYsNSh8WpfR4jX6/bbHQ0S/l9bgvZwMkwFjiYTyFOLL0bmP7K0PphCc4vRmVips+nZMMAysxhhTN69mtY2GowtoCV8z3BYcT1Th6m6Cv1ab1WiyH16SvrZJwAUWFNiV3R/1/e26l1p3uajdybYuk9AUG/UO4FHlhpnqUIypkPGRR2sO6oexmO9E3AUTh5RM4enSJHarYOLYDG1sGPbxt8bkYZKF2TCinIWyttsTvlHX99vrHnO2+5WfcclfErUsiXavCWzz6ZFKabb40Ey8yClOFI5oHyAEyvfcLW/Gfyn/kQfCtj7KK+7eXAqQGfvaQYpuk0wY8jltxoJQeC/tUos/ddCSowyENd5NBj5Box3ZhTh84He7/MKgN7auXQ/XWxWq46i+bNWK6x3G6iNYx8FlWeH77olHm2RB8MjmaAjhzKPa2ZOPh6mCrJQK+XEsHaaLSNhd2tudIfmZ2zAqmoThGttS2nVPpGEbPUyuJxFtg="
 #        - DOCKER_USER=janedoe
         - DOCKER_REGISTRY_USER=batandwa
 
-before_deploy:
-    - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD"
+# before_deploy:
+#     - docker login -u "$DOCKER_REGISTRY_USER" -p "$DOCKER_REGISTRY_PASSWORD"
+
+before_install:
+    - export REPO=api.docker-registry.batandwa.me/just-the-video/app
+    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+    - docker build -f Dockerfile -t $REPO:$COMMIT .
+    - docker tag $REPO:$COMMIT $REPO:$TAG
+    - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+    # - docker build -t $DOCKER_IMAGE:$TRAVIS_COMMIT .
+    - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+    # - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    # - docker push $DOCKER_IMAGE:$TRAVIS_COMMIT
+    - docker push $REPO    
+    - docker run -d $REPO:$COMMIT
 
 script:
 #    - docker login api.docker-registry.batandwa.me --username admin --password "meccaprovepauloepsom"
@@ -43,6 +55,32 @@ notifications:
         api_key:
             secure: 3gpXY49rOaxaXcEBV9tZjnd0lQjEbHBmyQgJ7DjRp6Q6HDUy/g+3B52Zv8n+fDcChKatZ3kK2gy7/a5ioC3WJIQHP77Fsnddy+1sjXYxwy3NRpz7vaoG8Cd76civNomTwmoXU3Hpui1MJGD+/0Mm0RNXASLZWzDjfRw6AfWqGHz7a7C7Y9TGXrLWwvNDUnT4QUtd515By+if8+QtOkttv7d29LOjc9CmzFNaH66NPG249S8VG5Ji77OpOibLecZRDkIZqdw1xkzY1ISFxvdhUeYLaoyI2CLNZLzj3HyFGLjvcNulG5FMA6U9qHHMPdyl0lasj9a7TwhzDQuXGpQ2epzCMWvNjL8L4mBbZAYydRl1SPAI4ol5OhZay6wme01Pn2p5FjN571eYTJnjSJqGB7eQxDU7ylxMHJSDocZbFotqZ5TP98cro/Gp8bLNR/cnxSZ9its78MEwBLdryXj4DRpyiUfMZVb73PIZn6Qbp932GjvEGJjfubv+5NsaVPZaMaom8n3EpzFTImgTqiIj/Fwo+A9NksHcZYL/8LlLm2nQNV5qkWSvVjk51EU6DBFfsRw1c07YBD/1oytK31dgr2SqU0V0TWC77IpQm2V0fCzYQ4Lp1WJEEkwgDr/R9mOG7dd0RqfBsTq0KcD7G3AySL0KcVMFOSOoFIR6A2iPdMQ=
 
-deploy:
-    provider: script
-    script:
+# deploy:
+#     provider: script
+#     script:
+
+
+
+# services:
+#   - docker
+
+# before_install:
+#   - docker build -t $DOCKER_IMAGE:$TRAVIS_COMMIT .
+#   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+#   - docker push $DOCKER_IMAGE:$TRAVIS_COMMIT
+#   - docker run -d $DOCKER_IMAGE:$TRAVIS_COMMIT
+
+script:
+  - docker ps | grep -q $DOCKER_IMAGE
+
+# after_success:
+#   - curl -k -L https://files.sloppy.io/sloppy-`uname -s`-`uname -m` > sloppy
+#   - chmod +x sloppy
+#   - ./sloppy change -v docker_image:"$DOCKER_IMAGE:$TRAVIS_COMMIT" -v domain:"$DOMAIN" $SLOPPY_FILE
+
+# notifications:
+#   email:
+#     recipients:
+#       - $EMAIL
+#     on_success: never
+#     on_failure: always
