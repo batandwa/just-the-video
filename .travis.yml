@@ -29,15 +29,17 @@ env:
 before_install:
     - export REPO=api.docker-registry.batandwa.me/just-the-video/app
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-    - docker build -f Dockerfile -t $REPO:$COMMIT .
-    - docker tag $REPO:$COMMIT $REPO:$TAG
-    - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+    # - docker build -f Dockerfile -t $REPO:$COMMIT .
+    - docker build -f Dockerfile -t $REPO .
+    # - docker tag $REPO:$COMMIT $REPO:$TAG
+    # - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
     # - docker build -t $DOCKER_IMAGE:$TRAVIS_COMMIT .
     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     # - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
     # - docker push $DOCKER_IMAGE:$TRAVIS_COMMIT
     - docker push $REPO    
-    - docker run -d $REPO:$COMMIT
+    # - docker run -d $REPO:$COMMIT
+    - docker run -d $REPO
 
 script:
 #    - docker login api.docker-registry.batandwa.me --username admin --password "meccaprovepauloepsom"
