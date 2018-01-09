@@ -32,7 +32,7 @@ before_install:
     # - docker build -f Dockerfile -t $REPO:$COMMIT .
     - ls -alh
     - pwd
-    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && ls -alh && npm install && npm install --only=dev && npm install --dev grunt && grunt --gruntfile=gruntfile.js build"
+    - docker run --rm -it -v `pwd`:/code batandwa/just-the-video-build:latest sh -c "cd /code && ls -alh && npm install && npm install --only=dev && npm install --dev grunt && grunt --gruntfile=gruntfile.js build"
     - npm version
     - ls -alh
     - cat package.json
