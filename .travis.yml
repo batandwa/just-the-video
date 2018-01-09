@@ -31,7 +31,7 @@ before_install:
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     # - docker build -f Dockerfile -t $REPO:$COMMIT .
     - ls -alh
-    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && npm install && npm install --only=dev && npm install --dev grunt && grunt --gruntfile=gruntfile.js build"
+    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && ls -alh && npm install && npm install --only=dev && npm install --dev grunt && grunt --gruntfile=gruntfile.js build"
     - npm version
     - ls -alh
     - cat package.json
