@@ -33,6 +33,7 @@ before_install:
     - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && npm install && npm install --only=dev && grunt build"
     - npm version
     - ls -alh
+    - cat package.json
     - docker build -f Dockerfile -t $REPO .
     # - docker tag $REPO:$COMMIT $REPO:$TAG
     # - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
