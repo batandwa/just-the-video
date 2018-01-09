@@ -30,6 +30,7 @@ before_install:
     - export REPO=api.docker-registry.batandwa.me/just-the-video/app
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     # - docker build -f Dockerfile -t $REPO:$COMMIT .
+    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && yarn install"
     - docker build -f Dockerfile -t $REPO .
     # - docker tag $REPO:$COMMIT $REPO:$TAG
     # - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
@@ -41,14 +42,14 @@ before_install:
     # - docker run -d $REPO:$COMMIT
     - docker run -d $REPO
 
-script:
+# script:
 #    - docker login api.docker-registry.batandwa.me --username admin --password "meccaprovepauloepsom"
 #    - export DOCKER_REGISTRY_USER=admin
 #    - docker --version
 #    - export DOCKER_REGISTRY_USER=batandwa
 #    - export DOCKER_REGISTRY_PASSWORD="meccaprovepauloepsom"
-    - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && yarn install"
+    # - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+    # - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && yarn install"
 
 notifications:
     pushover:
