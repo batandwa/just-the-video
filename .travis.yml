@@ -30,7 +30,8 @@ before_install:
     - export REPO=api.docker-registry.batandwa.me/just-the-video/app
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     # - docker build -f Dockerfile -t $REPO:$COMMIT .
-    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && yarn install --dev && grunt build"
+    - docker run --rm -it -v /tmp/code:/code batandwa/just-the-video-build:latest sh -c "cd /code && npm install --dev && grunt build"
+    - npm version
     - ls -alh
     - docker build -f Dockerfile -t $REPO .
     # - docker tag $REPO:$COMMIT $REPO:$TAG
