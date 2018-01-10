@@ -27,4 +27,4 @@ notifications:
 
 script:
     # - docker ps
-    - sh build.sh
+    - bash build.sh
