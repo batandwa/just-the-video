@@ -42,6 +42,7 @@ before_install:
     # - docker build -t $DOCKER_IMAGE:$TRAVIS_COMMIT .
     - echo $DOCKER_REGISTRY_USER
     - echo $DOCKER_REGISTRY_PASSWORD
+    - ls -alh
     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     # - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
     # - docker push $DOCKER_IMAGE:$TRAVIS_COMMIT
