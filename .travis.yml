@@ -33,6 +33,7 @@ env:
 before_install:
     - export REPO=batandwa/just-the-video
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+    - export TAG="${TAG/feature\//}"
     # - docker build -f Dockerfile -t $REPO:$COMMIT .
     - ls -alh
     - pwd
@@ -41,6 +42,7 @@ before_install:
     - ls -alh
     - cat package.json
     - echo $TRAVIS_BRANCH
+    - echo $TAG
     - docker build -f Dockerfile -t $REPO:$TAG .
     # - docker tag $REPO:$COMMIT $REPO:$TAG
     # - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
