@@ -40,6 +40,8 @@ before_install:
     # - docker tag $REPO:$COMMIT $REPO:$TAG
     # - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
     # - docker build -t $DOCKER_IMAGE:$TRAVIS_COMMIT .
+    - echo $DOCKER_REGISTRY_USER
+    - echo $DOCKER_REGISTRY_PASSWORD
     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
     # - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
     # - docker push $DOCKER_IMAGE:$TRAVIS_COMMIT
