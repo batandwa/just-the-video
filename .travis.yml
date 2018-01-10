@@ -13,18 +13,18 @@ notifications:
         api_key:
             secure: 3gpXY49rOaxaXcEBV9tZjnd0lQjEbHBmyQgJ7DjRp6Q6HDUy/g+3B52Zv8n+fDcChKatZ3kK2gy7/a5ioC3WJIQHP77Fsnddy+1sjXYxwy3NRpz7vaoG8Cd76civNomTwmoXU3Hpui1MJGD+/0Mm0RNXASLZWzDjfRw6AfWqGHz7a7C7Y9TGXrLWwvNDUnT4QUtd515By+if8+QtOkttv7d29LOjc9CmzFNaH66NPG249S8VG5Ji77OpOibLecZRDkIZqdw1xkzY1ISFxvdhUeYLaoyI2CLNZLzj3HyFGLjvcNulG5FMA6U9qHHMPdyl0lasj9a7TwhzDQuXGpQ2epzCMWvNjL8L4mBbZAYydRl1SPAI4ol5OhZay6wme01Pn2p5FjN571eYTJnjSJqGB7eQxDU7ylxMHJSDocZbFotqZ5TP98cro/Gp8bLNR/cnxSZ9its78MEwBLdryXj4DRpyiUfMZVb73PIZn6Qbp932GjvEGJjfubv+5NsaVPZaMaom8n3EpzFTImgTqiIj/Fwo+A9NksHcZYL/8LlLm2nQNV5qkWSvVjk51EU6DBFfsRw1c07YBD/1oytK31dgr2SqU0V0TWC77IpQm2V0fCzYQ4Lp1WJEEkwgDr/R9mOG7dd0RqfBsTq0KcD7G3AySL0KcVMFOSOoFIR6A2iPdMQ=
 
-before_install:
-    - export REPO=batandwa/just-the-video
-    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-    - export TAG="${TAG/feature\//}"
-    - docker run --rm -it -v `pwd`:/code batandwa/just-the-video-build:latest sh -c "cd /code && ls -alh && npm install && grunt --gruntfile=gruntfile.js setup build"
-    - docker build -f Dockerfile -t $REPO:$TAG .
-    - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
-    - docker run -d -p 80:80 $REPO:$TAG
-    - sleep 5
-    - curl localhost:80 --head
-    - docker push $REPO:$TAG
+# before_install:
+#     - export REPO=batandwa/just-the-video
+#     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+#     - export TAG="${TAG/feature\//}"
+#     - docker run --rm -it -v `pwd`:/code batandwa/just-the-video-build:latest sh -c "cd /code && ls -alh && npm install && grunt --gruntfile=gruntfile.js setup build"
+#     - docker build -f Dockerfile -t $REPO:$TAG .
+#     - docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
+#     - docker run -d -p 80:80 $REPO:$TAG
+#     - sleep 5
+#     - curl localhost:80 --head
+#     - docker push $REPO:$TAG
 
 script:
-    - docker ps
+    # - docker ps
     - sh build.sh
