@@ -16,5 +16,6 @@ curl localhost:80 --head
 docker push $REPO:$TAG
 
 openssl aes-256-cbc -K $encrypted_75ea7b9aaeb2_key -iv $encrypted_75ea7b9aaeb2_iv -in id_rsa.enc -out /tmp/id_rsa -d
+chmod /tmp/id_rsa 0600
 ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa $APP_HOST $DEST_DIR
 scp -i /tmp/id_rsa docker-compose.yml $APP_HOST:$DEST_DIR
