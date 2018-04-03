@@ -1,0 +1,7 @@
+---
+dev:
+    options:
+        base: web
+        port: 9000
+        keepalive: true
+        debug: true
