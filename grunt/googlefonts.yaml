@@ -1,8 +1,8 @@
 setup:
     options:
-        fontPath: web/googlefonts
-        httpPath: /googlefonts/
-        cssFile: fonts.css
+        fontPath: web/fonts
+        httpPath: /fonts/
+        cssFile: web/css/fonts.css
         formats:
             eot: true
             ttf: true
