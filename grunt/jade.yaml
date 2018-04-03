@@ -13,3 +13,6 @@ dev:
     pretty: true
     client: false
     basePath: 'web/'
+    data:
+      bookmarklet: <%= grunt.file.read('temp/bookmarklet.txt') %>
+
