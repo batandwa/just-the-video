@@ -10,4 +10,4 @@ dist:
           cwd: web
           dest: dist
           src:
-              - googlefonts/*
+              - fonts/*
