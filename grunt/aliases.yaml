@@ -17,6 +17,7 @@ build:
     - dist
 
 bookmarklet:
+    - uglify:bookmarklet
     - shell:bookmarklet
 
 bm:
