@@ -1,6 +1,6 @@
 services: 
     - docker
-language: c
+language: generic
 
 notifications:
     pushover:
