@@ -30,4 +30,3 @@ stages:
       script: bash build.sh
     - name: deploy
       script: bash deploy.sh
-      if: branch =~ ^release\/.*$
