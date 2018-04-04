@@ -28,7 +28,7 @@ head
     link(rel='stylesheet', href='assets/css/responsive.css', media='screen')
     
     // Added google font
-    link(href='googlefonts/fonts.css', rel='stylesheet', type='text/css')
+    link(href='css/fonts.css', rel='stylesheet', type='text/css')
     
     // Fav and touch icons
     link(rel='shortcut icon', href='assets/images/icons/favicon.ico')
@@ -53,51 +53,43 @@ body
         .preloader-section
 
     // banner start
-    section#banner.banner.norm-img
-        .trans-bg
-            .container-fluid
-                .row
-                    .col-sm-12
-                        h2
-                            a.lg-logo(href='') Just the Video
-                            
-                        // Text slider start here
-                        .flex_text.text-slider
-                            ul.slides
-                                li Pop-out a video
-                                li Keep the features of the cloud player
-                                li Uses a bookmark(let), no installation
-                                
-                        .download-block.text-center
-                            a.btn-download(href='#{bookmarklet}') Just the Video
-                            span Drag this button to your toolbar
+    section#banner.banner.norm-img: .trans-bg: .container-fluid: .row: .col-sm-12
+            h2
+                a.lg-logo(href='') Just the Video
+                
+            // Text slider start here
+            .flex_text.text-slider
+                ul.slides
+                    li Pop-out a video
+                    li Keep the features of the cloud player
+                    li Uses a bookmark(let), no installation
+                    
+            .download-block.text-center
+                a.btn-download(href='#{bookmarklet}') Just the Video
+                span Drag this button to your toolbar
 
     footer#footer.norm-img(style='background-position: 50% 200px;')
-        .trans-bg
-            .container
-                .row
-                    .col-sm-12.text-center
-                        .copyright
-                            p 
-                                | &copy; 
-                                span Just the Video 
-                                span.copyright-year 2016
-                                | , all right reserved
-                            p
-                                | Design by 
-                                span CodePassenger
-                                | - Deveoloped by
-                                span &nbsp;
-                                    a(href="http://batandwa.me") Batandwa Colani
+        .trans-bg: .container: .row: .col-sm-12.text-center: .copyright
+            p 
+                | &copy; 
+                span Just the Video 
+                span.copyright-year 2016
+                | , all right reserved
+            p
+                | Design by 
+                span CodePassenger
+                | - Deveoloped by
+                span &nbsp;
+                    a(href="http://batandwa.me") Batandwa Colani
+
+    //-<!-- build:js /js/jquery.min.js -->
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='assets/js/jquery.min.js')
+    //-<!-- endbuild -->
 
     //-<!-- build:js /js/site.min.js -->
-
-    // jQuery (necessary for Bootstrap's JavaScript plugins)
-    script(src='components/jquery/jquery.js')
-
     // Include all compiled plugins (below), or include individual files as needed
     script(src='assets/js/bootstrap.js')
     script(src='assets/js/jquery.flexslider-min.js')
     script(src='assets/js/script.js')
-
     //-<!-- endbuild -->
