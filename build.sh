@@ -20,4 +20,4 @@ openssl aes-256-cbc -K $encrypted_75ea7b9aaeb2_key -iv $encrypted_75ea7b9aaeb2_i
 chmod 0600 /tmp/id_rsa
 ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa $APP_HOST_USER@$APP_HOST mkdir -p $DEST_DIR
 scp -o StrictHostKeyChecking=no -i /tmp/id_rsa docker-compose.yml $APP_HOST_USER@$APP_HOST:$DEST_DIR
-ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa $APP_HOST_USER@$APP_HOST cd $DEST_DIR && TAG=$TAG docker-compose up -d
+ssh -o StrictHostKeyChecking=no -i /tmp/id_rsa $APP_HOST_USER@$APP_HOST cd $DEST_DIR && TAG=$TAG docker-compose pull && TAG=$TAG docker-compose up -d --force-recreate
