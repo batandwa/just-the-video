@@ -1,6 +1,6 @@
 services: 
     - docker
-# language: generic
+language: javascript
 
 notifications:
     pushover:
