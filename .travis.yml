@@ -1,6 +1,6 @@
 services: 
     - docker
-language: javascript
+language: node_js
 
 notifications:
     pushover:
