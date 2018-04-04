@@ -3,3 +3,4 @@ version: '2'
 services:
     web:
         image: batandwa/just-the-video:$TAG
+        ports: 35001:80
