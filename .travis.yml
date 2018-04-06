@@ -1,5 +1,6 @@
 services: 
     - docker
+language: generic
 
 notifications:
     pushover:
@@ -30,3 +31,8 @@ jobs:
           script: bash build.sh
         - stage: deploy
           script: bash deploy.sh
+
+stages:
+    - build
+    - name: deploy
+      if: branch = master
