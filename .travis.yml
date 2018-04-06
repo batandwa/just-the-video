@@ -35,4 +35,4 @@ jobs:
 stages:
     - build
     - name: deploy
-      if: branch =~ ^feature\/.*$
+      if: branch =~ ^release\/.*$
