@@ -15,4 +15,7 @@ docker run -d -p 80:80 $REPO:$TAG
 sleep 5
 curl localhost:80 --head
 
-docker push $REPO:$TAG
+# Only push releases.
+if [[ $TAG = *"release\/"* ]]; then
+  docker push $REPO:$TAG
+fi
