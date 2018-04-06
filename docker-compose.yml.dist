@@ -1,0 +1,12 @@
+version: '2'
+services:
+    web:
+        extends:
+            file: docker-compose-base.yml
+            service: web
+        labels:
+            - traefik.backend=justthevideo_web
+            - traefik.frontend.rule=Host:just-the-video.docker.local
+            - traefik.port=80
+        volumes:
+            - ./web:/usr/share/nginx/html

@@ -1,0 +1,7 @@
+bookmarklet:
+    src: temp/index.html
+    dest: dist/index.html
+    options:
+        directiveSyntax: js
+        globalDefines:
+            bookmarklet: "<%= bookmarklet() %>"

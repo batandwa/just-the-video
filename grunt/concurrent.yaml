@@ -1,0 +1,8 @@
+---
+dev:
+    tasks:
+        - watch:jade
+        - watch:sass
+        - connect:dev
+    options:
+        logConcurrentOutput: true

@@ -1,0 +1,10 @@
+---
+jade:
+  files:
+  - web/*.jade
+  tasks: jade:dev
+sass:
+  files:
+  - web/css/*.sass
+  - web/css/*.scss
+  tasks: sass:dev

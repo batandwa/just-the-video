@@ -1,0 +1,17 @@
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        title Just the Video
+        //-<!-- build:css /css/watch.min.css -->
+        link(rel="stylesheet", href="/css/watch.css")
+        link(rel="stylesheet", href="/components/dropzone/dist/dropzone.css")
+        //-<!-- endbuild -->
+    body
+        .drop: .drop-inner
+        
+        //-<!-- build:js /js/watch.min.js -->
+        script(src='/components/jquery/jquery.js')
+        script(src='/components/dropzone/dist/dropzone.js')
+        script(src='/js/watch.js')
+        script(src='/js/drop.js')
+        //-<!-- endbuild -->

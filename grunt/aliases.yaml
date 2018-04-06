@@ -1,0 +1,25 @@
+default:
+    - watch
+
+setup:
+    - googlefonts:setup
+
+dist:
+    - shell:clean-build
+    - bookmarklet
+    - jshint
+    - sass:dev
+    - jadeUsemin:dist
+    - jade:dist
+    - copy:dist
+    - expand-include:bookmarklet
+
+build:
+    - dist
+
+bookmarklet:
+    - uglify:bookmarklet
+    - shell:bookmarklet
+
+bm:
+    - bookmarklet

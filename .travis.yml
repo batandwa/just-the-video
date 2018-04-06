@@ -1,0 +1,38 @@
+services: 
+    - docker
+language: generic
+
+notifications:
+    pushover:
+        users:
+            secure: ySOCk9sp3iPmR8uoT+cLHjr6HzQDQj1e9KmNOD0KZVcNkL5o87d6VWZB/G7uf65zdvHEBEk9HqeSE40ZaFrzmQGV0aEIIKJjumXge3Q603bbmyPSBp/jNmUWLGgpOp+LUJvO5aFtEdh9EL8BVhcWpPebFPkX9F5n+CRusd4CO1SZ7vYDZVu34bIDW0lxknZYqISzY5tCrTVfg+jSc2C35WMYkfMS77G72CaKFDlOquD8VDkcigPk4OjJ25L/xqpnVLyKDdz/Xx2KHb/3pXMUABZ3PclYAaBW2gEY+PqWNLQerdhkpPPY2N+TikhBfJguzncFpAgTKD8HFSfdadZo7uWM6yXY8Xcr/NNQ0I3x+wRow2jw5kFGxaMmN/KHT7C4+Cpxwt3gCG0O1KaZElQG+or/5cJcVtjG7Bs3ncZ3NEtIZ0IUhip938BYQ3eHjTl4IdVjZnJYYkQZcfcM7pFfzdgbgL1gPUsvY3qCoWrEVad4h8i/EzZyzura26JZPxF3ZdqNaADGhhCtEYEgiQUUe3ijp3YkVwdwmIpQBrEPNRm2nIMDiWUhjmcl93zb3kfxQ8MOB6PMCn3deEaqYcduUa3LsYhGh2oqDqcjJckKMkVBx1LJ46GEYp3bCKQIhTzAkL0WNF3Qtnk8rAS7LlMvUGwpA6shB3zORcCLMcVk/io=
+        api_key:
+            secure: 3gpXY49rOaxaXcEBV9tZjnd0lQjEbHBmyQgJ7DjRp6Q6HDUy/g+3B52Zv8n+fDcChKatZ3kK2gy7/a5ioC3WJIQHP77Fsnddy+1sjXYxwy3NRpz7vaoG8Cd76civNomTwmoXU3Hpui1MJGD+/0Mm0RNXASLZWzDjfRw6AfWqGHz7a7C7Y9TGXrLWwvNDUnT4QUtd515By+if8+QtOkttv7d29LOjc9CmzFNaH66NPG249S8VG5Ji77OpOibLecZRDkIZqdw1xkzY1ISFxvdhUeYLaoyI2CLNZLzj3HyFGLjvcNulG5FMA6U9qHHMPdyl0lasj9a7TwhzDQuXGpQ2epzCMWvNjL8L4mBbZAYydRl1SPAI4ol5OhZay6wme01Pn2p5FjN571eYTJnjSJqGB7eQxDU7ylxMHJSDocZbFotqZ5TP98cro/Gp8bLNR/cnxSZ9its78MEwBLdryXj4DRpyiUfMZVb73PIZn6Qbp932GjvEGJjfubv+5NsaVPZaMaom8n3EpzFTImgTqiIj/Fwo+A9NksHcZYL/8LlLm2nQNV5qkWSvVjk51EU6DBFfsRw1c07YBD/1oytK31dgr2SqU0V0TWC77IpQm2V0fCzYQ4Lp1WJEEkwgDr/R9mOG7dd0RqfBsTq0KcD7G3AySL0KcVMFOSOoFIR6A2iPdMQ=
+
+branches:
+    only:
+        - /^release\/.*$/
+        - /^feature\/.*$/
+        - master
+
+env:
+    global:
+        # Docker password
+        - secure: "ipyaTV6RX/oJvHWlF6jA7Pv4pRReDo6z34UnhAZ1Jf4SI2fZ3TtCX+PFxpbhkUQLgaFtAcyuCenvwctl2aoLZ3kdQ1MSDm3zkyxnCG8QxOtz7Gfna9pUcoIgyixMrllzb1XhhAt/pP9hSPopQVdBWUjOjU+uZOR7qGphd0Fa73mquNcxpV3GqyRtu5r9q+B9WMVGRYvNp/kz+YfaKkOoCuSZawQ0fC8YWZh1u+mF+3S5FycrTMDU+/6bKc74X0Ira4DefxXiXxxN8Q1niafT/5Etg9qJwwcgqM46sePfSBYLVl6Eo4pBya5IP8V9FPI/4b7L7308I+DscdcbKJVICcCeM0+uxIZfnMNoC4/EwrCfwEY5rVRXfa2LcgJ6QZ9pNMGDyM3/EZSSuTh61VbvAxnCBn9zjZtyuvJhLzZX09xiH6MZP0+AyuQ8Wd9GhJ/Z6Pzv+boJi8/ZijC1V9U23QE1r8hhBXK5+zoSYdQ8X76SaHjhQe3P5M6ERmKt5HfBbdhCU7cjHUWH8ZChbSg/cdtYKRf4/1Yr3HRoiztDpMJ7LZ7RA6JNBnQOBUJ522G0e4GmyhqS4iJ5ig1iJmuKyl1C7N5gX541v8fGDbEWsHslZB2WCPlHQidbMB/G0Y68IQY0+sZgZ6rbnNAQQfoCRqobKJSqbuJ4b9ImllKjdTY="
+        # Host IP addresses
+        - secure: "jJYn9t+BCZYNlUHL9IlmAvukvgL3jPImpHXnqj/S4wY/OkiNdx4mj/awS66Yvj/mQJ4umjZ7XBMy/gxkzknBtLr7aVofGhaL2GD02kg7U+mjbSnpvtLlOpaKVA3c1AKq7GYKZpHTqko+HPcBrtdAjalI7lA9oxUCnTknTCDTrb2beOVtt0GnoluTvQlCKZ2xaH76/LJWOX+WmVzq0Wj0YfnMNh5QVi9kuw8ZlUqkEzmUhF4BKYKoowzH6P14LgvRkvzvgSbUrGhb7LlIEur8lzUIunrg6Kpy4YbE7GdnhQ6DPXSHl2C0wSxYmrv2SkUNvUfBz8R6fHj6R8fMx++N6vjysoHJSu5vLTnxQU1F7qT0FI9LbnuJ+lMzL+EL54rq6ZT5FkFr3CPHIBdHkPAG5J0hokszZ+PTnIrt/GHIIY9jdb4jslrfg/oQXmJR12y+IkutHwUPpbIZZ+FPbvQFIsiow8XXhTAk82Qfg8/xI7DxP4IoMNZ/LsXoEoXDNT+MPFd2ke2faGljfTRdxkDLrcWeTu9vv6B9KxlxZNVICBxnCBGM+VGtHF5d6lVRFRKgZ+DUOgHlkzNhEz9SrKEFNS9HdNptVVdmcwif8Owq7dmgfZWvzqv4BA+ijcVveCtHHnPxk1Nt0JTU0aDkG1jyUWcEquAbJZWXzJJvRjKjbgE="
+        # Host username
+        - secure: "yXQBDkreVz6g8pgGmolhRNXzmAlKaDJa63ZrsvMNAzz27ke6C1Jruq8/exJlBw93HtZEmZ4tVUf5UWkoyincLjUHVBnlaUERE2S2CIQlM68j8+kZZNjN57YG9xNoZA+mWo/w63hDTRYvlEoFCBQMQ35Uqaa9oM+7y6lbpB9SYkG9uISePJq3vEOQ7brk7Ilrez2OcxRjlsZhB0Fzy14l4EtBgX8ZPNjIKkcklFocUBLZqJFbtwhbhlf96UzRtnf4JGy/3aTa4o/EWi3HSvXW/arjBiFW0EUCnmvBxxO5nea3xynuhynP66CaLGMviIteGczRX2zESshKa21qWxaIdJCTpQrFD+52hD9Inv3NBTXVEIaXXlYW6oHA9GHponhQ3ZG7rzwzQKENbaRcL9QEAy8R4XPY5CKRRRF2aND9FgZdy21bOJHZsymch65cGbUOdT1Te9EfCPMnwFsfLgWJub/USkx07FoOnpVrqMoYtY1xpC2lFGm6Ud26mm2xKnjHqRiqDDjSNWmCZzhTTQPD+KbqyedMS5vS4ZbcuIH+hbY5nwWcebmjK64scHvKDrYR/vHitOufyJ3wwOS2IHja/w0j+yw+XvxVPB8K8ydxu3XvG++ipqELqHJbvqc5gpXNyeSGByF6Ym0VNFhjUEg9O3XrXOxW1nBzbkVMBL4MXM8="
+        - DOCKER_REGISTRY_USER=batandwa
+
+jobs:
+    include:
+        - stage: build
+          script: bash build.sh
+        - stage: deploy
+          script: bash deploy.sh
+
+stages:
+    - build
+    - name: deploy
+      if: branch =~ ^release\/.*$

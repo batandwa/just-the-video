@@ -1,0 +1,20 @@
+dist:
+    files:
+        temp/index.html: temp/index.jade
+        dist/watch.html: temp/watch.jade
+    options:
+        pretty: true
+        client: false
+        data:
+            bookmarklet: <%= grunt.file.read('temp/bookmarklet.txt') %>
+
+dev:
+    files:
+        web/index.html: web/index.jade
+        web/watch.html: web/watch.jade
+    options:
+        pretty: true
+        client: false
+        basePath: web/
+        data:
+            bookmarklet: <%= grunt.file.read('temp/bookmarklet.txt') %>

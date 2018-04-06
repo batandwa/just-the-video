@@ -1,0 +1,12 @@
+/web/*.html
+/web/css/*.css
+/web/css/*.css.map
+/vendor
+/node_modules
+/docker-compose.*.yml
+/dist
+/junk
+/temp
+.sass-cache
+/web/components
+/web/fonts
