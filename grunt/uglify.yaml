@@ -1,7 +1,19 @@
 ---
 dist:
-  options:
-    banner: "<%= banner %>"
-  files:
-    dist/js/site.min.js:
-    - dist/js/site.js
+    options:
+        banner: "<%= banner %>"
+    files:
+        dist/js/site.min.js:
+            - dist/js/site.js
+        dist/js/libs.min.js:
+            - dist/js/libs.js
+        dist/js/custom.min.js:
+            - dist/js/custom.js
+bookmarklet:
+    options:
+        wrap: true
+        compress: true
+        mangle: true
+    files:
+        temp/bookmarklet.js:
+            - bookmarklet/main.js

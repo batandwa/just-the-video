@@ -9,5 +9,4 @@
 /temp
 .sass-cache
 /web/components
-/web/googlefonts
-/docker-compose.yml
+/web/fonts

@@ -1,0 +1,13 @@
+---
+dev:
+    options:
+        base: web
+        port: 9000
+        keepalive: true
+        debug: true
+build:
+    options:
+        base: dist
+        port: 9001
+        keepalive: true
+        debug: true
