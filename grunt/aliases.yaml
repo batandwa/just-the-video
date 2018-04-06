@@ -5,6 +5,7 @@ setup:
     - googlefonts:setup
 
 dist:
+    - shell:clean-build
     - bookmarklet
     - jshint
     - sass:dev
