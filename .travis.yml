@@ -24,8 +24,8 @@ env:
         - secure: "yXQBDkreVz6g8pgGmolhRNXzmAlKaDJa63ZrsvMNAzz27ke6C1Jruq8/exJlBw93HtZEmZ4tVUf5UWkoyincLjUHVBnlaUERE2S2CIQlM68j8+kZZNjN57YG9xNoZA+mWo/w63hDTRYvlEoFCBQMQ35Uqaa9oM+7y6lbpB9SYkG9uISePJq3vEOQ7brk7Ilrez2OcxRjlsZhB0Fzy14l4EtBgX8ZPNjIKkcklFocUBLZqJFbtwhbhlf96UzRtnf4JGy/3aTa4o/EWi3HSvXW/arjBiFW0EUCnmvBxxO5nea3xynuhynP66CaLGMviIteGczRX2zESshKa21qWxaIdJCTpQrFD+52hD9Inv3NBTXVEIaXXlYW6oHA9GHponhQ3ZG7rzwzQKENbaRcL9QEAy8R4XPY5CKRRRF2aND9FgZdy21bOJHZsymch65cGbUOdT1Te9EfCPMnwFsfLgWJub/USkx07FoOnpVrqMoYtY1xpC2lFGm6Ud26mm2xKnjHqRiqDDjSNWmCZzhTTQPD+KbqyedMS5vS4ZbcuIH+hbY5nwWcebmjK64scHvKDrYR/vHitOufyJ3wwOS2IHja/w0j+yw+XvxVPB8K8ydxu3XvG++ipqELqHJbvqc5gpXNyeSGByF6Ym0VNFhjUEg9O3XrXOxW1nBzbkVMBL4MXM8="
         - DOCKER_REGISTRY_USER=batandwa
 
-stages:
-    - name: build
-      script: bash build.sh
-    - name: deploy
-      script: bash deploy.sh
+# stages:
+#     - name: build
+#       script: bash build.sh
+#     - name: deploy
+#       script: bash deploy.sh
