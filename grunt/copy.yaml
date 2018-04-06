@@ -11,3 +11,4 @@ dist:
           dest: dist
           src:
               - fonts/*
+              - images/*
