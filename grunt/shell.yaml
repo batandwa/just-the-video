@@ -4,6 +4,8 @@ bookmarklet:
         `npm bin`/bookmarkletify temp/bookmarklet.js > temp/bookmarklet.txt
 clean-build: rm -rf dist
 docker-build:
-    command: |
-        if [ -z $TAG ]; then TAG=`git describe --abbrev=0 --tags`; fi &&
-        docker build --tag batandwa/just-the-video:$TAG .
+    command:
+        - echo $TAG
+        - if [ -z $TAG ]; then TAG=`git describe --abbrev=0 --tags`; fi
+        - echo $TAG
+        - docker build --tag batandwa/just-the-video:$TAG .
