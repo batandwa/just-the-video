@@ -5,5 +5,5 @@ bookmarklet:
 clean-build: rm -rf dist
 docker-build:
     command: |
-        version=`git describe --abbrev=0 --tags` &&
-        docker build --tag batandwa/just-the-video:$version-dev .
+        if [ -z $TAG ]; then TAG=`git describe --abbrev=0 --tags`; fi &&
+        docker build --tag batandwa/just-the-video:$TAG-dev .
