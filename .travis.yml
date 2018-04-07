@@ -13,7 +13,7 @@ branches:
     only:
         - /^release\/.*$/
         - /^feature\/.*$/
-        - master
+        - /^v\d+\.\d+\.\d+$/
 
 env:
     global:
