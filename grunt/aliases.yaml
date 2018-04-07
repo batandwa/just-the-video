@@ -6,6 +6,7 @@ setup:
 
 dist:
     - shell:clean-build
+    - setup
     - bookmarklet
     - jshint
     - sass:dev
@@ -13,6 +14,7 @@ dist:
     - jade:dist
     - copy:dist
     - expand-include:bookmarklet
+    - shell:docker-build
 
 build:
     - dist

@@ -1,2 +1,9 @@
-bookmarklet: 'mkdir -p temp && node_modules/bookmarkletify/bin/bookmarkletify temp/bookmarklet.js > temp/bookmarklet.txt'
-clean-build: 'rm -rf dist'
+bookmarklet:
+    command: | 
+        mkdir -p temp && 
+        `npm bin`/bookmarkletify temp/bookmarklet.js > temp/bookmarklet.txt
+clean-build: rm -rf dist
+docker-build:
+    command: |
+        version=`cat package.json | jq -r ".version"` &&
+        docker build --tag batandwa/just-the-video:$version-dev .
