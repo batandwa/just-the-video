@@ -1,11 +1,9 @@
 bookmarklet:
-    command: | 
+    command: |
         mkdir -p temp && 
         `npm bin`/bookmarkletify temp/bookmarklet.js > temp/bookmarklet.txt
 clean-build: rm -rf dist
 docker-build:
-    command:
-        - echo $TAG
-        - if [ -z $TAG ]; then TAG=`git describe --abbrev=0 --tags`; fi
-        - echo $TAG
-        - docker build --tag batandwa/just-the-video:$TAG .
+    command: |
+        if [ -z ${TAG+x} ]; then TAG=`git describe --abbrev=0 --tags`; fi &&
+        docker build --tag batandwa/just-the-video:$TAG .
