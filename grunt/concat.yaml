@@ -1,19 +1,4 @@
 ---
 options:
   banner: "<%= banner %>"
-  stripBanners: 'true'
-dist:
-  src:
-    - web/js/**/*.js
-    - web/assets/js/*.js
-  dest: dist/js/<%= pkg.name %>.js
-libs:
-  src:
-    - web/js/**/*.js
-    - web/assets/js/*.js
-  dest: dist/js/libs.js
-custom:
-  src:
-    - web/js/**/*.js
-    - web/assets/js/*.js
-  dest: dist/js/custom.js
+  stripBanners: false
