@@ -15,6 +15,6 @@ sleep 5
 curl localhost:80 --head
 
 # Only push releases.
-if [[ $TAG = *"release\/"* ]]; then
+if [ $TAG=~"v\d+\.\d+(\.\d+)?(-\S*)?" ]; then
   docker push $REPO:$TAG
 fi
