@@ -7,6 +7,7 @@ TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
 export TAG
 DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
+echo "TAG=$TAG" >> .env
 
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
         sh -c "cd /code && ls -alh && npm install && grunt -v --gruntfile=gruntfile.js setup build"
