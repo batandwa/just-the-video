@@ -11,7 +11,7 @@ echo "TAG=$DOCKER_TAG" >> .env
 echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
-        sh -c "cd /code && npm install && node_modules/.bin/bower install && grunt -v --gruntfile=gruntfile.js setup build"
+        sh -c "cd /code && npm install && node_modules/.bin/bower install --allow-root && grunt -v --gruntfile=gruntfile.js setup build"
 echo "Starting build of image..."
 docker build -f Dockerfile -t $DOCKER_IMAGE:$TAG .
 docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
