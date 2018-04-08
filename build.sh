@@ -5,6 +5,7 @@ BUILD_IMAGE=just-the-video-build
 TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
+export TAG
 DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
 
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
