@@ -5,6 +5,7 @@ setup:
     - googlefonts:setup
 
 dist:
+    - env:build
     - shell:clean-build
     - setup
     - bookmarklet
