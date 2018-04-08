@@ -6,6 +6,7 @@ TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_
 TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
 DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
+
 echo "TAG=$DOCKER_TAG" >> .env
 echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 
