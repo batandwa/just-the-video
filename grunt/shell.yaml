@@ -6,5 +6,6 @@ clean-build: rm -rf dist
 docker-build:
     command: |
         echo $TAG &&
+        which docker &&
         if [ -z ${TAG+x} ]; then TAG=`git describe --abbrev=0 --tags`; fi &&
         docker build --tag batandwa/just-the-video:$TAG .
