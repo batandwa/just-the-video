@@ -12,6 +12,7 @@ echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 which docker
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
         sh -c "cd /code && ls -alh && npm install && grunt -v --gruntfile=gruntfile.js setup build"
+echo "Starting build of image..."
 docker build -f Dockerfile -t $REPO:$TAG .
 docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
 docker run -d -p 80:80 $REPO:$TAG
