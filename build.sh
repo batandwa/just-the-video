@@ -1,12 +1,13 @@
 #!/bin/sh
 
-REPO=batandwa/just-the-video
+DOCKER_IMAGE=batandwa/just-the-video
 BUILD_IMAGE=just-the-video-build
 TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
 DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
 echo "TAG=$DOCKER_TAG" >> .env
+echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 
 which docker
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
@@ -19,5 +20,5 @@ curl localhost:80 --head
 
 # Only push releases.
 if [ $TAG=~"v\d+\.\d+(\.\d+)?(-\S*)?" ]; then
-  docker push $REPO:$TAG
+  docker push $DOCKER_IMAGE:$TAG
 fi
