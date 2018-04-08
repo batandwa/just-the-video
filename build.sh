@@ -6,11 +6,12 @@ TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_
 TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
 DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
+
 echo "TAG=$DOCKER_TAG" >> .env
 echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 
 docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
-        sh -c "cd /code && ls -alh && npm install && grunt -v --gruntfile=gruntfile.js setup build"
+        sh -c "cd /code && npm install && node_modules/.bin/bower install && grunt -v --gruntfile=gruntfile.js setup build"
 echo "Starting build of image..."
 docker build -f Dockerfile -t $DOCKER_IMAGE:$TAG .
 docker login --username $DOCKER_REGISTRY_USER --password "$DOCKER_REGISTRY_PASSWORD"
