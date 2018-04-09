@@ -1,7 +1,8 @@
 #!/bin/sh
 
 DOCKER_IMAGE=batandwa/just-the-video
-BUILD_IMAGE=just-the-video-build
+BUILD_IMAGE=batandwa/just-the-video-builder
+BUILD_IMAGE_VERSION=0.0.2
 TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 TAG="${TAG/feature\//}"
 TAG="${TAG/release\//}"
@@ -10,7 +11,7 @@ DEST_DIR=/home/$APP_HOST_USER/projects/just_the_video
 echo "TAG=$DOCKER_TAG" >> .env
 echo "DOCKER_IMAGE=$DOCKER_IMAGE" >> .env
 
-docker run --rm -it -v `pwd`:/code batandwa/$BUILD_IMAGE:latest \
+docker run --rm -it -v `pwd`:/code $BUILD_IMAGE:$BUILD_IMAGE_VERSION \
         sh -c "cd /code && npm install && node_modules/.bin/bower install --allow-root && grunt -v --gruntfile=gruntfile.js setup build"
 echo "Starting build of image..."
 docker build -f Dockerfile -t $DOCKER_IMAGE:$TAG .
