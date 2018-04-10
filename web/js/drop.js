@@ -68,11 +68,11 @@ addEvent(bodyEl, 'mouseover', function(event) {
 
 addEvent(bodyEl, 'mouseout', function(event) {
   var destElement = event.toElement || event.relatedTarget;
-  if ((destElement && destElement.parentNode == this) || destElement == this) {
+  if ((destElement && destElement.parentNode === this) || destElement === this) {
     return;
   }
   var eventTarget = event.target;
-  if (eventTarget == this) {
+  if (eventTarget === this) {
     eventTarget.classList.remove('mouse-on');
   }
 });
