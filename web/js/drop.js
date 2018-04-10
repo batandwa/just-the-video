@@ -59,7 +59,7 @@ function dropLoad() {
 }
 
 addLoadEvent(dropLoad);
-var bodyEl = document.getElementsByClassName('player');
+var bodyEl = document.getElementsByClassName('main');
 
 addEvent(bodyEl, 'mouseover', function(e) {
   var element = event.target;
