@@ -82,7 +82,8 @@
           }
 
           var fragment = createElement(embedCode);
-          document.body.insertBefore(fragment, document.body.childNodes[0]);
+          var playerEl = document.getElementsByClassName('player')[0];
+          playerEl.appendChild(fragment);
           return;
         }
 

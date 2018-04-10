@@ -1,8 +1,15 @@
+bm:
+    - bookmarklet
+    
+bookmarklet:
+    - uglify:bookmarklet
+    - shell:bookmarklet
+
+build:
+    - dist
+
 default:
     - watch
-
-setup:
-    - googlefonts:setup
 
 dist:
     - env:build
@@ -17,12 +24,8 @@ dist:
     - expand-include:bookmarklet
     - shell:docker-build
 
-build:
-    - dist
+serve:
+    - concurrent:dev
 
-bookmarklet:
-    - uglify:bookmarklet
-    - shell:bookmarklet
-
-bm:
-    - bookmarklet
+setup:
+    - googlefonts:setup

@@ -59,4 +59,21 @@ function dropLoad() {
 }
 
 addLoadEvent(dropLoad);
+var bodyEl = document.getElementsByClassName('main');
+
+addEvent(bodyEl, 'mouseover', function(event) {
+  var element = event.target;
+  element.classList.add('mouse-on');
+});
+
+addEvent(bodyEl, 'mouseout', function(event) {
+  var destElement = event.toElement || event.relatedTarget;
+  if ((destElement && destElement.parentNode === this) || destElement === this) {
+    return;
+  }
+  var eventTarget = event.target;
+  if (eventTarget === this) {
+    eventTarget.classList.remove('mouse-on');
+  }
+});
 }());
