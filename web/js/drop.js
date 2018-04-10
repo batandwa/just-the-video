@@ -61,7 +61,7 @@ function dropLoad() {
 addLoadEvent(dropLoad);
 var bodyEl = document.getElementsByClassName('main');
 
-addEvent(bodyEl, 'mouseover', function(e) {
+addEvent(bodyEl, 'mouseover', function(event) {
   var element = event.target;
   element.classList.add('mouse-on');
 });
