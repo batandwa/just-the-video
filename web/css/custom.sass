@@ -19,3 +19,45 @@
         line-height: 40px
         margin-bottom: 0
         width: 100%
+
+.fadeout
+    -webkit-animation: fadeout 2s ease-in-out
+    -webkit-animation-fill-mode: forwards
+    -moz-animation: fadeout 2s ease-in-out
+    -moz-animation-fill-mode: forwards
+    -ms-animation: fadeout 2s ease-in-out
+    -ms-animation-fill-mode: forwards
+    -o-animation: fadeout 2s ease-in-out
+    -o-animation-fill-mode: forwards
+    animation: fadeout 2s ease-in-out
+    animation-fill-mode: forwards
+    
+@keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@-moz-keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@-webkit-keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@-ms-keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@-o-keyframes fadeout
+    from
+        opacity: 1
+    to
+        opacity: 0
