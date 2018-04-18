@@ -1,10 +1,7 @@
-$(document).ready(function() {
-	"use strict";
-
-  $(window).load(function() {
-      // will first fade out the loading animation
-      $(".preloader").fadeOut();
-      //then background color will fade out slowly
-      $("#faceoff").delay(200).fadeOut("slow");
-  });
-});
+(function () {
+  'use strict';
+  // will first fade out the loading animation
+  $(".preloader").fadeOut();
+  //then background color will fade out slowly
+  $("#faceoff").delay(200).fadeOut("slow");
+}());
