@@ -26,6 +26,7 @@ head
     // Custom stylesheet
     link(rel='stylesheet', href='assets/css/style.css')
     link(rel='stylesheet', href='assets/css/responsive.css', media='screen')
+    link(rel='stylesheet', href='css/custom.css')
     
     // Added google font
     link(href='css/fonts.css', rel='stylesheet', type='text/css')
@@ -57,12 +58,10 @@ body
             h2
                 a.lg-logo(href='') Just the Video
                 
-            // Text slider start here
-            .flex_text.text-slider
-                ul.slides
-                    li Pop-out a video
-                    li Keep the features of the cloud player
-                    li Uses a bookmark(let), no installation
+            ul.slider
+                li Pop-out a video
+                li Keep the features of the cloud player
+                li Uses a bookmark(let), no installation
                     
             .download-block.text-center
                 a.btn-download(href='#{bookmarklet}') Just the Video

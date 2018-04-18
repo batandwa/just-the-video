@@ -3,3 +3,4 @@ dev:
     style: expanded
   files:
     web/css/watch.css: web/css/watch.sass
+    web/css/custom.css: web/css/custom.sass
